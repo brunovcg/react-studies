@@ -16,8 +16,7 @@ const UseEffectHook = () => {
 
   // Altera number quando renderiza
   useEffect(() => {
-    setNumber(count);
-    /*eslint-disable-next-line*/
+    setNumber(count=>count);
   }, []);
 
   return (

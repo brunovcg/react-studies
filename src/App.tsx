@@ -6,6 +6,8 @@ import UseDebugValueHook from './hooks/useDebugValue';
 import UseLayoutEffectHook  from "./hooks/useLayoutEffect"
 import UseContextHook from "./hooks/useContext"
 import UseReducerHook from "./hooks/useReducer"
+import UseCallbackHook from "./hooks/useCallback"
+import UseMemoHook from "./hooks/useMemo"
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
       <UseImperativeHandleHook/>
       <UseContextHook/>
       <UseReducerHook/>
+      <UseCallbackHook/>
+      <UseMemoHook/>
     </div>
   );
 }
