@@ -16,7 +16,7 @@ const Modal = () => {
         }}
       >
         isso é um modal dentro de um portal, esta sendo anexado a outro node,
-        não o root.
+        não o root. No Console, olhe onde está sendo implementado!
       </div>
     </div>
   , document.getElementById('portal'));

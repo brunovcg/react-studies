@@ -1,10 +1,10 @@
-import incrementHOC from "./withCounterHOC";
+import incrementHOCFunc from "./withCounterFuncHOC";
 
-const HoverCounter = (props) => {
+const HoverCounterFunc = (props) => {
   return (
     <div
       style={{
-        background: "blue",
+        background: "red",
         color: "white",
         width: "fit-content",
         marginTop: "10px",
@@ -16,4 +16,4 @@ const HoverCounter = (props) => {
   );
 };
 
-export default incrementHOC(HoverCounter);
+export default incrementHOCFunc(HoverCounterFunc);
