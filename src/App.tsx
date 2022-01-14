@@ -8,6 +8,8 @@ import UseContextHook from "./hooks/useContext"
 import UseReducerHook from "./hooks/useReducer"
 import UseCallbackHook from "./hooks/useCallback"
 import UseMemoHook from "./hooks/useMemo"
+import Modal from "./portals/modal"
+import HOC from "./hoc"
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <UseReducerHook/>
       <UseCallbackHook/>
       <UseMemoHook/>
+      <Modal/>
+      <HOC/>
     </div>
   );
 }
