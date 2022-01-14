@@ -10,6 +10,7 @@ import UseCallbackHook from "./hooks/useCallback"
 import UseMemoHook from "./hooks/useMemo"
 import Modal from "./portals/modal"
 import HOC from "./hoc"
+import CustomHook from "./hooks/customs"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <UseContextHook/>
       <UseReducerHook/>
       <UseCallbackHook/>
+      <CustomHook/>
       <UseMemoHook/>
       <Modal/>
       <HOC/>
