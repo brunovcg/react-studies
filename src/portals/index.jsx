@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-const Modal = () => {
+const PortalModal = () => {
   return ReactDOM.createPortal (
     <div
       style={{
@@ -22,4 +22,4 @@ const Modal = () => {
   , document.getElementById('portal'));
 };
 
-export default Modal;
+export default PortalModal;
