@@ -41,3 +41,21 @@ export const fetchUsers = () => {
       });
   };
 };
+
+
+
+export const fetchUsersForceError = () => {
+  return (dispatch) => {
+      dispatch(fetchUsersRequest)
+    axios
+      .get("https://jsonplaceholr.typicode.com/users")
+      .then((response) => {
+        const users = response.data;
+        dispatch(fetchUsersSuccess(users))
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch(fetchUsersFailure(errorMsg))
+      });
+  };
+};
