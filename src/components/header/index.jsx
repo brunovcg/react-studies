@@ -10,14 +10,22 @@ const Styled = styled.nav`
   justify-content: space-around;
   align-items: center;
 
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  .header-tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 12.5%;
 
-    :hover {
-      font-size: 20px;
-      color: yellow;
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+
+      :hover {
+        font-size: 20px;
+        color: yellow;
+        text-wrap: break-word;
+      }
     }
   }
 `;
@@ -25,14 +33,30 @@ const Styled = styled.nav`
 const Header = () => {
   return (
     <Styled>
-      <Link to="/">Home</Link>
-      <Link to="/hooks">Hooks</Link>
-      <Link to="/hoc">HOC</Link>
-      <Link to="/portals">Portals</Link>
-      <Link to="/styled">Styled-Components</Link>
-      <Link to="/redux">Redux</Link>
-      <Link to="/typescript">TypeScript</Link>
-      <Link to="/tests">Tests</Link>
+      <div className="header-tag">
+        <Link to="/">Home</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/hooks">Hooks</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/hoc">HOC</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/portals">Portals</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/styled">Styled-Components</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/redux">Redux</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/typescript">TypeScript</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/tests">Tests</Link>
+      </div>
     </Styled>
   );
 };
