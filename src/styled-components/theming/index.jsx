@@ -12,8 +12,6 @@ const theme = {
   },
 };
 
-
-
 const Button = styled.button`
   background: ${(props) => props.theme.dark.primary};
   border: ${(props) => props.theme.dark.primary} 2px solid;

@@ -13,7 +13,11 @@ const Child = React.forwardRef((props, ref) => {
 
   return (
     <>
-      {visible && <div style={{width: 'fit-content', background: "yellow"}}>MODAL ABERTO!</div>}
+      {visible && (
+        <div style={{ width: "fit-content", background: "yellow" }}>
+          MODAL ABERTO!
+        </div>
+      )}
     </>
   );
 });

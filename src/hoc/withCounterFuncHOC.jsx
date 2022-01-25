@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 const incrementHOCFunc = (OriginalComponent) => {
   const NewComponent = () => {
     const [counter, setCounter] = useState(0);

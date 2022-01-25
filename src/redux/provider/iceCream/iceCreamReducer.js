@@ -7,7 +7,7 @@ const iceCreamReducer = (state = inicialState, action) => {
     case BUY_ICECREAM:
       return {
         ...state,
-        numOfIceCream: state.numOfIceCream- 1,
+        numOfIceCream: state.numOfIceCream - 1,
       };
 
     default:
@@ -15,4 +15,4 @@ const iceCreamReducer = (state = inicialState, action) => {
   }
 };
 
-export default iceCreamReducer
+export default iceCreamReducer;

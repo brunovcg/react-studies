@@ -1,7 +1,6 @@
 import incrementHOC from "./withCounterHOC";
 
 const ClickCounter = (props) => {
-  
   return (
     <>
       <p>usando HOC : {props.name}</p>

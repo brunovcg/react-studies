@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import {buyCake} from "../provider/cake/cakeActions"
-import {buyIceCream} from "../provider/iceCream/iceCreamActions"
+import { buyCake } from "../provider/cake/cakeActions";
+import { buyIceCream } from "../provider/iceCream/iceCreamActions";
 
 // Se quiser usar como um component só (não está sendo renderizado):
 
@@ -21,9 +21,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const dispatchFunction = ownProps.cake ? () => dispatch(buyCake()) : ()=> dispatch(buyIceCream())
+  const dispatchFunction = ownProps.cake
+    ? () => dispatch(buyCake())
+    : () => dispatch(buyIceCream());
 
-  return { buyItem : dispatchFunction}
+  return { buyItem: dispatchFunction };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemContainer);

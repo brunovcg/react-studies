@@ -45,7 +45,7 @@ const StyledComponents = () => {
         <Post color="blue" fontSize={fontSize}>
           Não utilizando a variável CSS
         </Post>
-        <div style={{margin: "20px 0"}}></div>
+        <div style={{ margin: "20px 0" }}></div>
         <PostCSSTag color="red" fontSize={fontSize}>
           Usando a variável CSS no styled components
         </PostCSSTag>

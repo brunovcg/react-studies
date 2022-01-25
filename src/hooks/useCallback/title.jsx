@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Title = ({ text }) => {
-    console.log('Rendering Title')
+  console.log("Rendering Title");
   return <div>{text}</div>;
 };
 

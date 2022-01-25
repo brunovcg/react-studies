@@ -1,15 +1,14 @@
-import {useProvider} from "./provider"
+import { useProvider } from "./provider";
 
-const Sender = ()=> {
+const Sender = () => {
+  const { setCount, count } = useProvider();
 
-    const {setCount, count} = useProvider()
-
-return(
+  return (
     <div>
-        <button onClick={()=>setCount(count + 1)}> ADD +1</button>
-        <button onClick={()=>setCount(count - 1)}> SUB -1</button>
+      <button onClick={() => setCount(count + 1)}> ADD +1</button>
+      <button onClick={() => setCount(count - 1)}> SUB -1</button>
     </div>
-)
-}
+  );
+};
 
-export default Sender
+export default Sender;

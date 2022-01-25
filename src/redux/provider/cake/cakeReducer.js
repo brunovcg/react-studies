@@ -15,4 +15,4 @@ const cakeReducer = (state = inicialState, action) => {
   }
 };
 
-export default cakeReducer
+export default cakeReducer;

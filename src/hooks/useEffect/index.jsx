@@ -16,7 +16,7 @@ const UseEffectHook = () => {
 
   // Altera number quando renderiza
   useEffect(() => {
-    setNumber(count=>count);
+    setNumber((count) => count);
   }, []);
 
   return (

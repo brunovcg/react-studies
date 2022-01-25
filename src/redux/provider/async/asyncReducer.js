@@ -1,4 +1,8 @@
-import {FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE} from "./asyncTypes"
+import {
+  FETCH_USERS_REQUEST,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILURE,
+} from "./asyncTypes";
 
 const initialState = {
   loading: false,
@@ -21,17 +25,16 @@ const asyncReducer = (state = initialState, action) => {
         error: "",
       };
 
-
-      case FETCH_USERS_FAILURE:
-          return {
-              loading: false,
-              users: [],
-              error : action.payload
-          }
+    case FETCH_USERS_FAILURE:
+      return {
+        loading: false,
+        users: [],
+        error: action.payload,
+      };
 
     default:
       return state;
   }
 };
 
-export default asyncReducer
+export default asyncReducer;

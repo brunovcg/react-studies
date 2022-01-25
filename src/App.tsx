@@ -1,10 +1,10 @@
 import Routing from "./routes";
 import Header from "./components/header";
-import Main from "./styles"
+import Main from "./styles";
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
       <Header />
       <Main>
         <Routing />

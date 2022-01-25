@@ -1,10 +1,5 @@
-
 const TypeScript = () => {
+  return <div>to be developed....</div>;
+};
 
-
-    return(
-        <div>to be developed....</div>
-    )
-}
-
-export default TypeScript
+export default TypeScript;

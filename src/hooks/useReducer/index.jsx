@@ -37,9 +37,10 @@ const UseReduceHook = () => {
           <p>
             Recebe um funçao (reducer), e o estado inicial. Na funçao Reducer,
             recebe-se o estado e a ação, e se faz um Switch case, onde se o nome
-            da ação for o caso (ação enviada pela dispatch, desestruturado na useReducer.), um novo estado é retornado, esse estado está
-            disponível na desestruturação do useReducer.
-            Olhar o código para ver o funcionamento.
+            da ação for o caso (ação enviada pela dispatch, desestruturado na
+            useReducer.), um novo estado é retornado, esse estado está
+            disponível na desestruturação do useReducer. Olhar o código para ver
+            o funcionamento.
           </p>
           <div
             style={{

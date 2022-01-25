@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, fetchUsersForceError } from "../provider/async/asyncActions";
+import {
+  fetchUsers,
+  fetchUsersForceError,
+} from "../provider/async/asyncActions";
 
 const AsyncContainer = () => {
   const usersData = useSelector((state) => state.async);
