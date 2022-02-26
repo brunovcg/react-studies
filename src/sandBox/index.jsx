@@ -1,10 +1,13 @@
-
+import SandClass from "./sandClass";
+import SandFunction from "./sandFunction";
 
 const SandBox = () => {
- 
-
-
-  return <div>CONSOLE</div>;
+  return (
+    <div>
+      <SandClass />
+      <SandFunction />
+    </div>
+  );
 };
 
 export default SandBox;
