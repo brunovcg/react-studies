@@ -1,10 +1,11 @@
 import { Provider } from "./provider";
 import Consumer from "./consumer";
 import Sender from "./sender";
+import styles from "../styles";
 
 const UseContextHook = () => {
   return (
-    <div style={{ background: "#41a9d698", padding: "20px" }}>
+    <div style={styles.style3}>
       <h2>useContext</h2>
       <p>
         É utilizado para passar o contexto de um component para outro, quando

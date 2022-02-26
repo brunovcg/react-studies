@@ -1,5 +1,6 @@
 import ParentComponent from "./parent";
 import { useCallback, useState, useEffect } from "react";
+import styles from "../styles";
 
 // useCallback compara a função, useMemo a execução da função.
 
@@ -23,7 +24,7 @@ const UseCallbackHook = () => {
   });
 
   return (
-    <div style={{ background: "#badde5", padding: "20px" }}>
+    <div style={styles.style1}>
       <h2>useCallback</h2>
       <ParentComponent />
       <div>------------------------------</div>

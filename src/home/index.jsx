@@ -14,13 +14,20 @@ const Styled = styled.div`
     width: 80%;
     text-align: center;
   }
+
+  div {
+    margin: 0 100px;
+  }
 `;
 
 const Home = () => {
   return (
     <Styled>
       <h2>Aqui estão exemplos de alguns usos de recursos do React</h2>
-      <div> Click on NAVs menu to choose options</div>
+      <div>
+        {" "}
+        Clique nos menus do NAV escolha o que estudar e acompanhe pelo código
+      </div>
     </Styled>
   );
 };

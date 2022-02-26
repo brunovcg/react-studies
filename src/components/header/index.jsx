@@ -24,7 +24,7 @@ const Styled = styled.nav`
       :hover {
         font-size: 20px;
         color: yellow;
-        text-wrap: break-word;
+        word-wrap: break-word;
       }
     }
   }
@@ -56,6 +56,12 @@ const Header = () => {
       </div>
       <div className="header-tag">
         <Link to="/tests">Tests</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/classcomponents">Class Components</Link>
+      </div>
+      <div className="header-tag">
+        <Link to="/sandbox">Sandbox</Link>
       </div>
     </Styled>
   );

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import styles from "../styles";
 
 const UseRefHook = () => {
   // pode-se usar React.createRef()
@@ -12,16 +13,16 @@ const UseRefHook = () => {
   };
 
   return (
-    <div style={{ background: "lightgrey", padding: "20px" }}>
+    <div style={styles.style19}>
       <h2>useRef</h2>
-      <div style={{ border: "1px solid black", padding: "20px" }}>
+      <div style={styles.style20}>
         <h3>{"Usando algum atributo da <tag/>"}</h3>
         <p>useRef está acionando a prop 'focus' do input</p>
         <input ref={inputRef} />
         <button onClick={handleFocus}>Focar no input</button>
       </div>
 
-      <div style={{ border: "1px solid black", padding: "20px" }}>
+      <div style={styles.style21}>
         <h3>{"Pegando valor de um input"}</h3>
         <p> useRef está buscando o valor do input</p>
         <input name="name" label="nome completo" ref={submitRef} />
@@ -31,12 +32,12 @@ const UseRefHook = () => {
         <div>O que tem no input: {show}</div>
       </div>
 
-      <div style={{ border: "1px solid black", padding: "20px" }}>
+      <div style={styles.style22}>
         <h3>{"Exibindo a <tag/>"}</h3>
         <p> useRef está exibindo a tag clicada no console</p>
 
         <div
-          style={{ background: "orange", width: "fit-content" }}
+          style={styles.style23}
           onClick={() => {
             console.log(tagRef?.current);
           }}

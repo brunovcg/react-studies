@@ -1,12 +1,14 @@
 import { useDebugValue, useState } from "react";
+import styles from "../styles";
 
 const UseDebugValueHook = () => {
+  /*eslint-disable-next-line*/
   const [teste, setTeste] = useState(5);
 
   useDebugValue(`teste:${teste}`);
 
   return (
-    <div style={{ background: "#ffd0b5", padding: "20px" }}>
+    <div style={styles.style4}>
       <h2>useDebugValue</h2>
 
       <p>

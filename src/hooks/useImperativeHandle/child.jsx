@@ -1,4 +1,5 @@
 import React, { useImperativeHandle, useState } from "react";
+import styles from "../styles";
 
 const Child = React.forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
@@ -11,15 +12,7 @@ const Child = React.forwardRef((props, ref) => {
     return { toggleModal };
   });
 
-  return (
-    <>
-      {visible && (
-        <div style={{ width: "fit-content", background: "yellow" }}>
-          MODAL ABERTO!
-        </div>
-      )}
-    </>
-  );
+  return <>{visible && <div style={styles.style7}>MODAL ABERTO!</div>}</>;
 });
 
 export default Child;

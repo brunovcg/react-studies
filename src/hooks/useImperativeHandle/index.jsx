@@ -1,11 +1,12 @@
 import Child from "./child";
 import { useRef } from "react";
+import styles from "../styles"
 
 const UseImperativeHandleHook = () => {
   const childRef = useRef(null);
 
   return (
-    <div style={{ background: "#d3ead8", padding: "20px" }}>
+    <div style={styles.style6}>
       <h2>useImperativeHandle</h2>
       <p>
         usa o useRef para criar uma referencia passada a um component 'child',

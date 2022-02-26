@@ -1,4 +1,5 @@
 import { useEffect, useState, useLayoutEffect } from "react";
+import styles from "../styles";
 
 const UseLayoutEffectHook = () => {
   const [change, setChange] = useState(true);
@@ -21,7 +22,7 @@ const UseLayoutEffectHook = () => {
   }, [change]);
 
   return (
-    <div style={{ background: "#896f6f", padding: "20px" }}>
+    <div style={styles.style8}>
       <h2>useLayoutEffect</h2>
       <p>
         Clique no botão 'change' com o console aberto. Verá que o layout effect

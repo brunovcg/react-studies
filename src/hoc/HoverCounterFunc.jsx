@@ -1,14 +1,11 @@
+import styles from "./styles";
 import incrementHOCFunc from "./withCounterFuncHOC";
+
 
 const HoverCounterFunc = (props) => {
   return (
     <div
-      style={{
-        background: "red",
-        color: "white",
-        width: "fit-content",
-        marginTop: "10px",
-      }}
+      style={styles.style2}
       onMouseOver={props.func}
     >
       Hoved {props.state} times

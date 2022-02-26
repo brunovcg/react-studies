@@ -1,5 +1,6 @@
 import { useMemo, useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import styles from "../styles"
 
 // -------------------------------------------------------------------
 const filterMemo = (users, query) => {
@@ -14,7 +15,7 @@ const UserListMemo = ({ users, query }) => {
 
   return (
     <div
-      style={{ background: "yellow", display: "flex", flexDirection: "column" }}
+      style={styles.style9}
     >
       {filtered.map((user) => (
         <div key={user.id}>{user.name}</div>
@@ -37,7 +38,7 @@ const UserList = ({ users, query }) => {
 
   return (
     <div
-      style={{ background: "blue", display: "flex", flexDirection: "column" }}
+      style={styles.style10}
     >
       {filtered.map((user) => (
         <div key={user.id}>{user.name}</div>
@@ -66,16 +67,16 @@ const UseMemoHook = () => {
   }, [getUsers]);
 
   return (
-    <div style={{ background: "#8a898a", padding: "20px" }}>
+    <div style={styles.style11}>
       <h2>useMemo</h2>
       <input type="text" onChange={(evt) => setQuery(evt.target.value)} />
 
       <button onClick={() => setCount((old) => old + 1)}>force render</button>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={styles.style12}>
         <UserListMemo users={users} query={query} />
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={styles.style12}>
         <UserList users={users} query={query} />
       </div>
       <div>{count}</div>

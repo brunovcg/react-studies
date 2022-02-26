@@ -7,6 +7,8 @@ import TypeScript from "../typescript";
 import Redux from "../redux";
 import Tests from "../tests";
 import StyledComponents from "../styled-components";
+import ClassComponents from "../Class"
+import SandBox from "../sandBox"
 
 const Routing = () => {
   return (
@@ -19,6 +21,8 @@ const Routing = () => {
       <Route path="/redux" exact element={<Redux />} />
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route path="/tests" exact element={<Tests />} />
+      <Route path="/sandbox" exact element={<SandBox />} />
+      <Route path="/classcomponents" exact element={<ClassComponents />} />
     </Routes>
   );
 };

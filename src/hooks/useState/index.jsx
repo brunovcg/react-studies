@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../styles";
 
 const UseStateHook = () => {
   const [counter, setCounter] = useState(0);
@@ -8,7 +9,7 @@ const UseStateHook = () => {
   };
 
   return (
-    <div style={{ background: "lightblue", padding: "20px" }}>
+    <div style={styles.style18}>
       <h2>useState</h2>
       <p>useState está alterando o estado de counter</p>
       <div>Clicks: {counter}</div>

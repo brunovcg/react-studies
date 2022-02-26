@@ -1,19 +1,14 @@
 import ReactDOM from "react-dom";
+import styles from "./styles";
 
 const PortalModal = () => {
   return ReactDOM.createPortal(
     <div
-      style={{
-        background: "lightblue",
-        height: "fit-content",
-        padding: "20px 10px",
-      }}
+      style={styles.style1}
     >
       <h2>PORTAL</h2>
       <div
-        style={{
-          marginBottom: "20px",
-        }}
+        style={styles.style1}
       >
         isso é um modal dentro de um portal, esta sendo anexado a outro node,
         não o root. No Console, olhe onde está sendo implementado!

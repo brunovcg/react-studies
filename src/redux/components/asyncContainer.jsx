@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../styles";
 import {
   fetchUsers,
   fetchUsersForceError,
@@ -27,7 +28,7 @@ const AsyncContainer = () => {
         ) : (
           usersData.users.map((item, index) => (
             <div
-              style={{ display: "flex", background: "yellow", margin: "10px" }}
+              style={styles.style1}
               key={index}
             >
               <div>{item.id} -</div>

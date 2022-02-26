@@ -2,10 +2,11 @@ import ClickCounter from "./ClickCounter";
 import ClickCounterFunc from "./ClickCounterFunc";
 import HoverCounterFunc from "./HoverCounterFunc";
 import HoverCounter from "./HoverCounter";
+import styles from "./styles";
 
 const HOC = () => {
   return (
-    <div style={{ padding: "20px", background: "pink" }}>
+    <div style={styles.style3}>
       <h2>Higher Order Components</h2>
       <p>
         Ambos onClick e OnMouse over estão usando a mesma lógica de

@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import UseReducerComplex from "./complexUse";
+import styles from "../styles";
 
 const initialState = 0;
 const reducer = (state, action) => {
@@ -20,19 +21,9 @@ const UseReduceHook = () => {
 
   return (
     <div>
-      <div
-        style={{
-          background: "#dcd1a097",
-          padding: "20px",
-        }}
-      >
+      <div style={styles.style13}>
         <h2>useReducer</h2>
-        <div
-          style={{
-            padding: "20px",
-            border: "1px solid black",
-          }}
-        >
+        <div style={styles.style14}>
           <h3>Uso Simples</h3>
           <p>
             Recebe um funçao (reducer), e o estado inicial. Na funçao Reducer,
@@ -42,33 +33,14 @@ const UseReduceHook = () => {
             disponível na desestruturação do useReducer. Olhar o código para ver
             o funcionamento.
           </p>
-          <div
-            style={{
-              fontWeight: "bold",
-              color: "black",
-              fontSize: "20px",
-              marginLeft: "50px",
-            }}
-          >
-            {state}
-          </div>
+          <div style={styles.style15}>{state}</div>
           <button onClick={() => dispatch("increment")}>Incrementar</button>
           <button onClick={() => dispatch("decrement")}>Decrementar</button>
           <button onClick={() => dispatch("reset")}>Resetar</button>
         </div>
       </div>
-      <div
-        style={{
-          background: "#dcd1a097",
-          padding: "20px",
-        }}
-      >
-        <div
-          style={{
-            border: "1px solid black",
-            padding: "20px",
-          }}
-        >
+      <div style={styles.style17}>
+        <div style={styles.style17}>
           <UseReducerComplex />
         </div>
       </div>
