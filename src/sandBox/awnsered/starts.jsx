@@ -1,15 +1,15 @@
 import React from "react";
 
-const indexes = [
-  { index: "0", active: false },
-  { index: "1", active: false },
-  { index: "2", active: false },
-  { index: "3", active: false },
-  { index: "4", active: false },
-];
-
-function App() {
+function StarVote() {
   const [array, setArray] = React.useState(indexes);
+
+  const indexes = [
+    { index: "0", active: false },
+    { index: "1", active: false },
+    { index: "2", active: false },
+    { index: "3", active: false },
+    { index: "4", active: false },
+  ];
 
   const handleClick = (item) => {
     let newArray = [];
@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div id="rating" style={{ backgroundColor: "green", width: "fit-content" }}>
+    <div id="rating" style={{ backgroundColor: "red", margin: "0 5px" }}>
       {array.map((item) =>
         item.active ? (
           <span
@@ -50,4 +50,4 @@ function App() {
   );
 }
 
-export default App;
+export default StarVote;
