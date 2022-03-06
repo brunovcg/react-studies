@@ -2,9 +2,10 @@ import CSS from "csstype";
 
 interface IStyles {
   style1: CSS.Properties,
-  style2: CSS.Properties
-  style3: CSS.Properties
-  style4: CSS.Properties
+  style2: CSS.Properties,
+  style3: CSS.Properties,
+  style4: CSS.Properties,
+  style5: CSS.Properties
   
 }
 
@@ -24,5 +25,9 @@ export const styles: IStyles = {
   },
   style4:{
     color: "blue",
+  },
+  style5:{
+    background: "rgb(1,100,3,0.2)",
+    padding: "30px"
   }
 };

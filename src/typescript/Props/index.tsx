@@ -8,6 +8,7 @@ import Union from "./Union";
 import Events from "./Events";
 import { styles } from "../styles";
 
+
 export const Props = () => {
   const personName = {
     first: "Brunce",
@@ -51,6 +52,8 @@ export const Props = () => {
 
       <h3 style={styles.style4}>+ Events</h3>
       <Events />
+
+      
     </div>
   );
 };

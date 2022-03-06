@@ -13,7 +13,8 @@ const Events = () => {
       
       />
       <h4>input Events</h4>
-      <Input/>
+      <p>Olhe o console</p>
+      <Input  handleChange={(event)=> console.log(event.target.value)}/>
     </>
   );
 };
