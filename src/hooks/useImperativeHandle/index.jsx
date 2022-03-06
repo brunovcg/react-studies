@@ -18,7 +18,7 @@ const UseImperativeHandleHook = () => {
         alterar modal
       </button>
       <Child ref={childRef} />
-      {childRef.current.estado}
+ 
     </div>
   );
 };
