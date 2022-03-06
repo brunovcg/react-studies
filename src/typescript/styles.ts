@@ -4,6 +4,8 @@ interface IStyles {
   style1: CSS.Properties,
   style2: CSS.Properties
   style3: CSS.Properties
+  style4: CSS.Properties
+  
 }
 
 export const styles: IStyles = {
@@ -19,5 +21,8 @@ export const styles: IStyles = {
     background: "rgb(1,2,3,0.2)",
     padding: "30px"
 
+  },
+  style4:{
+    color: "blue",
   }
 };
