@@ -4,14 +4,14 @@ type ArrayOfObjectsProps = {
 
 const ArrayOfObject = ({ names }: ArrayOfObjectsProps) => {
   return (
-    <div>
+    <ul>
       {names.map((item) => (
-        <h2 key={item.first}>
+        <li key={item.first}>
           {" "}
           {item.first} {item.last}
-        </h2>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
