@@ -7,9 +7,12 @@ import SimpleObject from "./SimpleObject";
 import Union from "./Union";
 import Events from "./Events";
 import { styles } from "../styles";
+import Private from "./componentProp/Private";
+import Profile from "./componentProp/Profile";
+import List from "./GenericProps";
+import RandomNumber from "./RestrictionProp/RandomNumber";
 
-
-export const Props = () => {
+export const PropsType = () => {
   const personName = {
     first: "Brunce",
     last: "Wayne",
@@ -31,7 +34,9 @@ export const Props = () => {
   ];
 
   return (
-    <div>
+    <div style={styles.style1}>
+      <h2>PROPS</h2>
+
       <h3 style={styles.style4}>+ Basics</h3>
       <Basics myName="Bruno" messageCount={10} isLogged />
 
@@ -53,9 +58,31 @@ export const Props = () => {
       <h3 style={styles.style4}>+ Events</h3>
       <Events />
 
-      
+      <h3 style={styles.style4}>+ Component Props</h3>
+      <Private isLoggedIn component={Profile} />
+      <Private isLoggedIn={false} component={Profile} />
+
+      <h3 style={styles.style4}>+ Generic Props</h3>
+      <List
+        onClick={(item) => console.log(item)}
+        items={["batman", "superman", "WonderWoman"]}
+      />
+
+      <List onClick={(item) => console.log(item)} items={[1, 2, 3, 4, 5]} />
+
+      <List
+        onClick={(item) => console.log(item)}
+        items={[
+          { id: 1, first: "bruno", last: "gouveia" },
+          { id: 2, first: "brenda", last: "lima" },
+        ]}
+      />
+
+      <h3 style={styles.style4}>+ Generic Props</h3>
+
+      <RandomNumber value={100} isPositive/>
     </div>
   );
 };
 
-export default Props;
+export default PropsType;

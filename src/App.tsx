@@ -1,14 +1,20 @@
 import Routing from "./routes";
 import Header from "./components/header";
 import Main from "./styles";
+import { HeaderProvider } from "./providers";
 
 function App() {
+
+  
+
   return (
     <div className="App">
-      <Header />
-      <Main>
-        <Routing />
-      </Main>
+      <HeaderProvider>
+        <Header />
+        <Main>
+          <Routing />
+        </Main>
+      </HeaderProvider>
     </div>
   );
 }

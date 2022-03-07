@@ -1,32 +1,37 @@
-import Hooks from "./hooks";
-import Props from "./Props";
-import {styles} from "./styles"
-import StylesInLine from "./StylesInLine"
+import styled from "styled-components";
+
+const Styled = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  background-color: #d8edfd;
+  height: 90vh;
+
+  h2 {
+    width: 80%;
+    text-align: center;
+  }
+
+  div {
+    margin: 0 100px;
+  }
+`;
 
 const TypeScript = () => {
   return (
-    <>
-      <div style={styles.style1}>
-
-        <h2 style={styles.style2}>PROPS</h2>
-        <Props />
-      </div>
-
-      <div style={styles.style5}>
-        <h2 style={styles.style2}>Styles in Line</h2>
-        <StylesInLine />
-      </div>
-
-
-      <div style={styles.style3}>
-        <h2 style={styles.style2}>HOOKS</h2>
-        <Hooks />
-      </div>
-
-
-
-    </>
-  );
+    <Styled>
+  
+    <h2>Bem vindo ao menu do React com Typescript</h2>
+    <div>
+      {" "}
+      Clique nos menus do NAV escolha o que estudar e acompanhe pelo código
+    </div>
+  </Styled>
+);
+  
 };
 
 export default TypeScript;

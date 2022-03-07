@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useHeader } from "../../providers";
+import { TSLinks, JSLinks } from "./objects";
+import { useEffect, useState } from "react";
+import typescript from "../../assets/typescript.ico";
+import javascript from "../../assets/javascript.ico";
 
 const Styled = styled.nav`
-  background: red;
+  background-color: ${(props) =>
+    props.color === "javascript" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
   height: 6vh;
   padding: 2vh 0;
@@ -22,47 +28,87 @@ const Styled = styled.nav`
       font-weight: bold;
 
       :hover {
-        font-size: 20px;
-        color: yellow;
+        font-size: 23px;
+        color: ${(props) =>
+          props.color === "javascript" ? "rgb(255, 244, 146)" : "#bed3ff"};
         word-wrap: break-word;
       }
     }
   }
 `;
 
+const Figure = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin:0 10px;
+
+
+  figure {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0;
+    
+    img {
+      height: 100%;
+    }
+
+  }
+
+    p {
+      margin: 0;
+      color: white;
+      height: 10%;
+      :hover {
+        color: #eae9fa;
+      }
+    }
+  
+`;
+
 const Header = () => {
+  const { headerType, goJavascript, goTypescript } = useHeader();
+  const [lib, setLib] = useState(JSLinks);
+
+  useEffect(() => {
+    if (headerType === "javascript") {
+      return setLib(JSLinks);
+    }
+    if (headerType === "typescript") {
+      return setLib(TSLinks);
+    }
+  }, [headerType]);
+
   return (
-    <Styled>
-      <div className="header-tag">
-        <Link to="/">Home</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/hooks">Hooks</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/hoc">HOC</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/portals">Portals</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/styled">Styled-Components</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/redux">Redux</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/typescript">TypeScript</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/tests">Tests</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/classcomponents">Class Components</Link>
-      </div>
-      <div className="header-tag">
-        <Link to="/sandbox">Sandbox</Link>
-      </div>
+    <Styled color={headerType}>
+      <img
+        src={headerType === "javascript" ? javascript : typescript}
+        alt="logo"
+        style={{ margin: "10px" }}
+      />
+
+      {lib.map((item, index) => (
+        <div key={index} className="header-tag">
+          <Link to={item.link}>{item.text}</Link>
+        </div>
+      ))}
+
+      <Figure
+        onClick={headerType === "typescript" ? goJavascript : goTypescript}
+      >
+        <figure>
+          <img
+            src={headerType === "javascript" ? typescript : javascript}
+            alt="image2"
+          />
+        </figure>
+        <p>change</p>
+      </Figure>
     </Styled>
   );
 };

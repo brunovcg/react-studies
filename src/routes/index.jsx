@@ -9,6 +9,13 @@ import Tests from "../tests";
 import StyledComponents from "../styled-components";
 import ClassComponents from "../Class"
 import SandBox from "../sandBox"
+import PropsType from "../typescript/Props"
+import ReduxType from "../typescript/redux"
+import HooksType from "../typescript/hooks"
+import ClassComponentType from "../typescript/class"
+import StyledComponentsType from "../typescript/styledComponents"
+import StylesInLineType from "../typescript/StylesInLine";
+import {OtherTypescript} from "../typescript/other"
 
 const Routing = () => {
   return (
@@ -20,6 +27,13 @@ const Routing = () => {
       <Route path="/styled" exact element={<StyledComponents />} />
       <Route path="/redux" exact element={<Redux />} />
       <Route path="/typescript" exact element={<TypeScript />} />
+      <Route path="/typescript/props" exact element={<PropsType/>} />
+      <Route path="/typescript/hooks" exact element={<HooksType/>} />
+      <Route path="/typescript/redux" exact element={<ReduxType/>} />
+      <Route path="/typescript/stylesinline" exact element={<StylesInLineType/>} />
+      <Route path="/typescript/styledcomponents" exact element={<StyledComponentsType/>} />
+      <Route path="/typescript/classcomponent" exact element={<ClassComponentType/>} />
+      <Route path="/typescript/other" exact element={<OtherTypescript/>} />
       <Route path="/tests" exact element={<Tests />} />
       <Route path="/sandbox" exact element={<SandBox />} />
       <Route path="/classcomponents" exact element={<ClassComponents />} />
