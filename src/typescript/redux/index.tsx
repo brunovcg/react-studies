@@ -1,9 +1,13 @@
+import { store } from "./Store/Store";
+import { Provider } from "react-redux";
+import Notes from "./Pages/Notes";
+
 const ReduxType = () => {
+  return (
+    <Provider store={store}>
+      <Notes />
+    </Provider>
+  );
+};
 
-
-    return (
-        <div> REDUX in type to be developed...</div>
-    )
-}
-
-export default ReduxType
+export default ReduxType;
