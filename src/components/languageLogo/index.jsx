@@ -17,6 +17,7 @@ export const LanguageLogo = ({ children }) => {
       }}
     >
       {children === "typescript" ? "TS" : "JS"}
+
     </div>
   );
 };

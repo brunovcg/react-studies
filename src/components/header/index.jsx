@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes }  from "styled-components";
 import { useHeader } from "../../providers";
 import { TSLinks, JSLinks } from "./objects";
 import { useEffect, useState } from "react";
@@ -7,11 +7,24 @@ import { useNavigate } from "react-router-dom";
 import reactLogo from "../../assets/react.ico";
 import {LanguageLogo} from "../languageLogo"
 
+
+const rotate = keyframes`
+
+from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+`;
+
+
+
 const Styled = styled.nav`
   background-color: ${(props) =>
     props.color === "javascript" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
-  height: 6vh;
+  height: 8vh;
   padding: 2vh 0;
   display: flex;
   justify-content: space-around;
@@ -24,6 +37,8 @@ const Styled = styled.nav`
 
     .react-logo {
       width: 80px;
+      animation: ${rotate} infinite 5s linear;
+
     }
 
     .jsts-logo {
@@ -97,6 +112,7 @@ const Header = () => {
 
       return navigate("/typescript");
     }
+    /*eslint-disable-next-line */
   }, [headerType]);
 
   return (
@@ -105,11 +121,6 @@ const Header = () => {
         <div className="image-box">
           <img className="react-logo" src={reactLogo} alt="logo" />
           <LanguageLogo>{headerType === "javascript" ? "JS" : "typescript"}</LanguageLogo>
-          {/* <img
-            className="jsts-logo"
-            src={headerType === "javascript" ? javascript : typescript}
-            alt="logo"
-          /> */}
         </div>
       </div>
 
