@@ -1,5 +1,6 @@
 import styled from "styled-components";
 const  reactLogo = require("../assets/react.ico")
+// import reactLogo from "../assets/react.ico"
 
 const Styled = styled.div`
   width: 100%;
@@ -18,6 +19,7 @@ const Styled = styled.div`
 
   div {
     margin: 0 100px;
+    text-align: center;
   }
 `;
 
@@ -29,7 +31,7 @@ const TypeScript = () => {
   
     <h2>Bem vindo ao menu do React com Typescript</h2>
     <div>
-      {" "}
+    
       Clique nos menus do NAV escolha o que estudar e acompanhe pelo código
     </div>
   </Styled>

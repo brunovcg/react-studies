@@ -22,7 +22,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src", "index.d.ts"
+    "src", "./src/index.d.ts"
 
   ],
   "exclude": ["dist", "build", "node_modules"]

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useHeader } from "../../providers";
 import { TSLinks, JSLinks } from "./objects";
 import { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom"
-import typescript from "../../assets/typescript.ico";
-import javascript from "../../assets/javascript.ico";
+import { useNavigate } from "react-router-dom";
+import reactLogo from "../../assets/react.ico";
+import {LanguageLogo} from "../languageLogo"
 
 const Styled = styled.nav`
   background-color: ${(props) =>
@@ -16,6 +16,21 @@ const Styled = styled.nav`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  .image-box {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+
+    .react-logo {
+      width: 80px;
+    }
+
+    .jsts-logo {
+      width: 30px;
+      height: 30px;
+    }
+  }
 
   .header-tag {
     display: flex;
@@ -29,7 +44,7 @@ const Styled = styled.nav`
       font-weight: bold;
 
       :hover {
-        font-size: 23px;
+        font-size: 20px;
         color: ${(props) =>
           props.color === "javascript" ? "rgb(255, 244, 146)" : "#bed3ff"};
         word-wrap: break-word;
@@ -39,68 +54,64 @@ const Styled = styled.nav`
 `;
 
 const Figure = styled.div`
-  height: 100%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 5px;
-  margin:0 10px;
-
+  margin: 0 10px;
+  cursor: pointer;
 
   .figure {
     height: 80%;
     display: flex;
     flex-direction: column;
-    background-color: white;
     margin: 0;
-    
-    img {
-      height: 100%;
-    }
-
   }
 
-    p {
-      margin: 0;
-      color: white;
-      height: 10%;
-      :hover {
-        color: #eae9fa;
-      }
+  p {
+    margin: 0;
+    color: white;
+    height: 10%;
+    :hover {
+      color: #eae9fa;
     }
-  
+  }
 `;
 
 const Header = () => {
   const { headerType, goJavascript, goTypescript } = useHeader();
   const [lib, setLib] = useState(JSLinks);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (headerType === "javascript") {
-       setLib(JSLinks);
+      setLib(JSLinks);
 
-       return navigate("/")
+      return navigate("/");
     }
     if (headerType === "typescript") {
       setLib(TSLinks);
 
-      return navigate("/typescript")
+      return navigate("/typescript");
     }
   }, [headerType]);
 
   return (
     <Styled color={headerType}>
-
-      <figure className="figure">
-        
-      <img
-        src={headerType === "javascript" ? javascript : typescript}
-        alt="logo"
-      />
-      </figure>
+      <div className="figure">
+        <div className="image-box">
+          <img className="react-logo" src={reactLogo} alt="logo" />
+          <LanguageLogo>{headerType === "javascript" ? "JS" : "typescript"}</LanguageLogo>
+          {/* <img
+            className="jsts-logo"
+            src={headerType === "javascript" ? javascript : typescript}
+            alt="logo"
+          /> */}
+        </div>
+      </div>
 
       {lib.map((item, index) => (
         <div key={index} className="header-tag">
@@ -111,12 +122,9 @@ const Header = () => {
       <Figure
         onClick={headerType === "typescript" ? goJavascript : goTypescript}
       >
-        <figure className="figure">
-          <img
-            src={headerType === "javascript" ? typescript : javascript}
-            alt="image2"
-          />
-        </figure>
+        <div className="figure">
+        <LanguageLogo>{headerType === "javascript" ? "typescript" : "javascript"}</LanguageLogo>
+        </div>
         <p>change</p>
       </Figure>
     </Styled>

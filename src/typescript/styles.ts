@@ -13,7 +13,7 @@ interface IStyles {
 export const styles: IStyles = {
   style1: {
     background: "#edd",
-    padding: "30px"
+    padding: "30px",
   },
   style2: { 
       margin: "0",
