@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useHeader } from "../../providers";
 import { TSLinks, JSLinks } from "./objects";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom"
 import typescript from "../../assets/typescript.ico";
 import javascript from "../../assets/javascript.ico";
 
@@ -47,8 +48,8 @@ const Figure = styled.div`
   margin:0 10px;
 
 
-  figure {
-    height: 60%;
+  .figure {
+    height: 80%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -75,22 +76,31 @@ const Header = () => {
   const { headerType, goJavascript, goTypescript } = useHeader();
   const [lib, setLib] = useState(JSLinks);
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     if (headerType === "javascript") {
-      return setLib(JSLinks);
+       setLib(JSLinks);
+
+       return navigate("/")
     }
     if (headerType === "typescript") {
-      return setLib(TSLinks);
+      setLib(TSLinks);
+
+      return navigate("/typescript")
     }
   }, [headerType]);
 
   return (
     <Styled color={headerType}>
+
+      <figure className="figure">
+        
       <img
         src={headerType === "javascript" ? javascript : typescript}
         alt="logo"
-        style={{ margin: "10px" }}
       />
+      </figure>
 
       {lib.map((item, index) => (
         <div key={index} className="header-tag">
@@ -101,7 +111,7 @@ const Header = () => {
       <Figure
         onClick={headerType === "typescript" ? goJavascript : goTypescript}
       >
-        <figure>
+        <figure className="figure">
           <img
             src={headerType === "javascript" ? typescript : javascript}
             alt="image2"

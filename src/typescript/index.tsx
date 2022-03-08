@@ -1,4 +1,5 @@
 import styled from "styled-components";
+const  reactLogo = require("../assets/react.ico")
 
 const Styled = styled.div`
   width: 100%;
@@ -23,6 +24,8 @@ const Styled = styled.div`
 const TypeScript = () => {
   return (
     <Styled>
+
+      <img style={{width: "100px"}} src={reactLogo} alt="logo" />
   
     <h2>Bem vindo ao menu do React com Typescript</h2>
     <div>

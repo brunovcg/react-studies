@@ -15,10 +15,6 @@ export const JSLinks = [
     link: "/portals",
     text: "Portals",
   },
-  {
-    link: "/styled",
-    text: "Styled-Components",
-  },
 
   {
     link: "/redux",
