@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import reactLogo from "../assets/react.ico"
+import reactLogo from "../../assets/react.ico"
 
 const Styled = styled.div`
   width: 100%;
