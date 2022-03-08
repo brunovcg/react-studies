@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <Styled>
        <img src={reactLogo} style={{width: "100px"}} alt="react" />
-      <h2>Aqui estão exemplos de alguns usos de recursos do React</h2>
+      <h2>Exemplos de alguns usos de recursos do React.js</h2>
       <div>
         {" "}
         Clique nos menus do NAV escolha o que estudar e acompanhe pelo código

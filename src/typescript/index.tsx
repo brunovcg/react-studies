@@ -29,7 +29,7 @@ const TypeScript = () => {
 
       <img style={{width: "100px"}} src={reactLogo} alt="logo" />
   
-    <h2>Bem vindo ao menu do React com Typescript</h2>
+    <h2>Exemplos de alguns usos do React com Typescript</h2>
     <div>
     
       Clique nos menus do NAV escolha o que estudar e acompanhe pelo código

@@ -26,7 +26,7 @@ export const JSLinks = [
   },
   {
     link: "/styled",
-    text: "Styled-Components",
+    text: "Styled-components",
   },
   {
     link: "/classcomponents",
@@ -39,6 +39,10 @@ export const JSLinks = [
 ];
 
 export const TSLinks = [
+  {
+    link: "/typescript",
+    text: "Home",
+  },
   {
     link: "/typescript/props",
     text: "Props",
@@ -64,7 +68,7 @@ export const TSLinks = [
 
   {
     link: "/typescript/classcomponent",
-    text: "Class",
+    text: "Class Components",
   },
   {
     link: "/typescript/other",
