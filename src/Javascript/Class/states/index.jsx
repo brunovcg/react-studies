@@ -27,7 +27,7 @@ class States extends React.Component {
                   <img src={item} alt="anyImage" />
                   <button
                     className="remove"
-                    onClick={() => this.handleRemove(item)}
+                    onClick={()=>this.handleRemove(item)}
                   >
                     X
                   </button>
