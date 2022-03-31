@@ -2,7 +2,7 @@ export const LanguageLogo = ({ children }) => {
   return (
     <div
       style={{
-        backgroundColor: children === "typescript" ? "#026aaf" : "#d8c326",
+        backgroundColor: children === "TS" ? "#026aaf" : "#d8c326",
         width: "30px",
         height: "30px",
         display: "flex",
@@ -16,7 +16,7 @@ export const LanguageLogo = ({ children }) => {
         letterSpacing: "1px"
       }}
     >
-      {children === "typescript" ? "TS" : "JS"}
+      {children === "TS" ? "TS" : "JS"}
 
     </div>
   );

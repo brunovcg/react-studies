@@ -1,16 +1,20 @@
 import React from "react";
 
 class TabStrip extends React.Component {
-
   render() {
     return (
       <div className="TabStrip">
         {this.props.titles.map((title, index) => {
-          const className = "TabStrip-title" +
+          const className =
+            "TabStrip-title" +
             (this.isActive(index) ? " TabStrip-title-active" : "");
 
           return (
-            <div onClick={() => this.setActiveIndex(index)} key={index} className={className}>
+            <div
+              onClick={() => this.setActiveIndex(index)}
+              key={index}
+              className={className}
+            >
               {title}
             </div>
           );
@@ -22,48 +26,43 @@ class TabStrip extends React.Component {
   isActive(index) {
     return index === this.getActiveIndex();
   }
-  
+
   setActiveIndex(activeIndex) {
-      
-      let a = document.getElementsByClassName("TabStrip-title")[activeIndex]
-      a.classList.remove("TabStrip-title")
-      a.classList.add("TabStrip-title-active")
+    let a = document.getElementsByClassName("TabStrip-title")[activeIndex];
+    a.classList.remove("TabStrip-title");
+    a.classList.add("TabStrip-title-active");
   }
-  
-  getActiveIndex() {
 
-
-  }
+  getActiveIndex() {}
 }
 
 class App2 extends React.Component {
   state = { activeIndex: 1 };
   render() {
-    return (<div>
-      <TabStrip activeIndex={this.state.activeIndex}
-        onActiveIndexChange={activeIndex => {
-          this.setState({
-            activeIndex
-          });
-        }}
-        titles={["My account", "Settings", "Dashbboard"]} 
-      />
-    </div>);
+    return (
+      <div>
+        <TabStrip
+          activeIndex={this.state.activeIndex}
+          onActiveIndexChange={(activeIndex) => {
+            this.setState({
+              activeIndex,
+            });
+          }}
+          titles={["My account", "Settings", "Dashbboard"]}
+        />
+      </div>
+    );
   }
 }
-
 
 class App extends React.Component {
-
-
-
-
   render() {
-    return <div>
-   <App2></App2>
-    </div>;
+    return (
+      <div>
+        <App2></App2>
+      </div>
+    );
   }
 }
-
 
 export default App;

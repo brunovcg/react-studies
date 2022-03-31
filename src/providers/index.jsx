@@ -1,21 +1,25 @@
 import { createContext, useContext, useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const HeaderContext = createContext();
 
 export const HeaderProvider = ({ children }) => {
-  const navigate = useNavigate()
+  const location = useLocation();
+
+  const isTypescript = location.pathname.includes("typescript");
+
+  const navigate = useNavigate();
   const goJavascript = () => {
-    setHeaderType("javascript");
-    navigate("/")
+    setHeaderType("JS");
+    navigate("/");
   };
 
   const goTypescript = () => {
-    setHeaderType("typescript");
-    navigate("/typescript")
+    setHeaderType("TS");
+    navigate("/typescript");
   };
 
-  const [headerType, setHeaderType] = useState("javascript");
+  const [headerType, setHeaderType] = useState(isTypescript ? "TS" : "JS");
 
   return (
     <HeaderContext.Provider value={{ headerType, goJavascript, goTypescript }}>

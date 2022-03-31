@@ -5,7 +5,7 @@ import HOC from "../Javascript/hoc";
 import PortalModal from "../Javascript/portals";
 import TypeScript from "../typescript";
 import Redux from "../Javascript/redux";
-import Tests from "../Javascript/tests";
+import MyTestsApp from "../Javascript/tests/MyTestApp";
 import StyledComponents from "../Javascript/styled-components";
 import ClassComponents from "../Javascript/Class"
 import SandBox from "../Javascript/sandBox"
@@ -19,7 +19,7 @@ import {OtherTypescript} from "../typescript/other"
 
 const Routing = () => {
   return (
-    <Routes>
+    <Routes> 
       <Route path="/" exact element={<Home />} />
       <Route path="/hooks" exact element={<Hooks />} />
       <Route path="/hoc" exact element={<HOC />} />
@@ -34,7 +34,7 @@ const Routing = () => {
       <Route path="/typescript/styledcomponents" exact element={<StyledComponentsType/>} />
       <Route path="/typescript/classcomponent" exact element={<ClassComponentType/>} />
       <Route path="/typescript/other" exact element={<OtherTypescript/>} />
-      <Route path="/tests" exact element={<Tests />} />
+      <Route path="/tests/*" exact element={<MyTestsApp />} />
       <Route path="/sandbox" exact element={<SandBox />} />
       <Route path="/classcomponents" exact element={<ClassComponents />} />
     </Routes>

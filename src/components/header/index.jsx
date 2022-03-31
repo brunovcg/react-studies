@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
-import styled, { keyframes }  from "styled-components";
+import { Link, useLocation } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 import { useHeader } from "../../providers";
 import { TSLinks, JSLinks } from "./objects";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import reactLogo from "../../assets/react.ico";
-import {LanguageLogo} from "../languageLogo"
-
+import { LanguageLogo } from "../languageLogo";
 
 const rotate = keyframes`
 
@@ -18,11 +16,9 @@ from {
     }
 `;
 
-
-
 const Styled = styled.nav`
   background-color: ${(props) =>
-    props.color === "javascript" ? "rgb(139, 126, 7)" : "#003dc2"};
+    props.color === "JS" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
   height: 8vh;
   padding: 2vh 0;
@@ -38,7 +34,6 @@ const Styled = styled.nav`
     .react-logo {
       width: 80px;
       animation: ${rotate} infinite 5s linear;
-
     }
 
     .jsts-logo {
@@ -61,7 +56,7 @@ const Styled = styled.nav`
       :hover {
         font-size: 20px;
         color: ${(props) =>
-          props.color === "javascript" ? "rgb(255, 244, 146)" : "#bed3ff"};
+          props.color === "JS" ? "rgb(255, 244, 146)" : "#bed3ff"};
         word-wrap: break-word;
       }
     }
@@ -99,18 +94,15 @@ const Header = () => {
   const { headerType, goJavascript, goTypescript } = useHeader();
   const [lib, setLib] = useState(JSLinks);
 
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isTypescript = location.pathname.includes("typescript");
 
   useEffect(() => {
-    if (headerType === "javascript") {
-      setLib(JSLinks);
-
-      return navigate("/");
-    }
-    if (headerType === "typescript") {
+    if (isTypescript) {
       setLib(TSLinks);
-
-      return navigate("/typescript");
+    } else {
+      setLib(JSLinks);
     }
     /*eslint-disable-next-line */
   }, [headerType]);
@@ -120,7 +112,7 @@ const Header = () => {
       <div className="figure">
         <div className="image-box">
           <img className="react-logo" src={reactLogo} alt="logo" />
-          <LanguageLogo>{headerType === "javascript" ? "JS" : "typescript"}</LanguageLogo>
+          <LanguageLogo>{isTypescript ? "TS" : "JS"}</LanguageLogo>
         </div>
       </div>
 
@@ -131,10 +123,12 @@ const Header = () => {
       ))}
 
       <Figure
-        onClick={headerType === "typescript" ? goJavascript : goTypescript}
+        onClick={isTypescript ? goJavascript : goTypescript}
       >
         <div className="figure">
-        <LanguageLogo>{headerType === "javascript" ? "typescript" : "javascript"}</LanguageLogo>
+          <LanguageLogo>
+            {!isTypescript ? "TS" : "JS"}
+          </LanguageLogo>
         </div>
         <p>change</p>
       </Figure>

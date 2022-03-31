@@ -4,7 +4,6 @@ import Main from "./styles";
 import { HeaderProvider } from "./providers";
 
 function App() {
-
   return (
     <div className="App">
       <HeaderProvider>
