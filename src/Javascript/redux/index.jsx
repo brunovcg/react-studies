@@ -5,57 +5,35 @@ import ChocolateContainer from "./components/chocolateContainer";
 import AsyncContainer from "./components/asyncContainer";
 import { Provider } from "react-redux";
 import store from "./provider/store";
+import styles from "./styles";
+import ReduxToolkit from "./redux-toolkit";
 
 const Redux = () => {
   return (
     <Provider store={store}>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
+      <section style={styles.style2}>
         <ConnectCakeContainer />
         <HookCakeContainer />
-      </div>
+      </section>
 
-      <div style={{ margin: "30px", background: "yellow", padding: "20px" }}>
+      <div style={styles.style3}>
         Usam a mesma variável na STORE, por isso mudam um ao outro.
       </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "start",
-
-          margin: "50px"
-        }}
-      >
+      <section style={styles.style4}>
         <IceCreamContainer />
-      </div>
+      </section>
 
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "start",
-          margin: "50px"
-        }}
-      >
+      <section style={styles.style5}>
         <ChocolateContainer />
-      </div>
+      </section>
 
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "start",
-          margin: "50px"
-        }}
-      >
+      <section style={styles.style6}>
         <AsyncContainer />
-      </div>
+      </section>
+
+      <section style={styles.style6}>
+        <ReduxToolkit />
+      </section>
     </Provider>
   );
 };

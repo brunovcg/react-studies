@@ -1,7 +1,7 @@
-import ClickCounter from "./ClickCounter";
-import ClickCounterFunc from "./ClickCounterFunc";
-import HoverCounterFunc from "./HoverCounterFunc";
-import HoverCounter from "./HoverCounter";
+import ClickCounter from "./class/ClickCounter";
+import ClickCounterFunc from "./function/ClickCounterFunc";
+import HoverCounterFunc from "./function/HoverCounterFunc";
+import HoverCounter from "./class/HoverCounter";
 import styles from "./styles";
 
 const HOC = () => {

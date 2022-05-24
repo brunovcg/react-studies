@@ -1,5 +1,5 @@
 import incrementHOC from "./withCounterHOC";
-import styles from "./styles";
+import styles from "../styles";
 
 const HoverCounter = (props) => {
   return (
