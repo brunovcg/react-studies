@@ -7,7 +7,6 @@ import reactLogo from "../../assets/react.ico";
 import { LanguageLogo } from "../languageLogo";
 
 const rotate = keyframes`
-
 from {
       transform: rotate(0deg);
     }
@@ -16,12 +15,11 @@ from {
     }
 `;
 
-const Styled = styled.nav`
+const Styled = styled.div`
   background-color: ${(props) =>
     props.color === "JS" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
   height: 8vh;
-  padding: 2vh 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -41,17 +39,26 @@ const Styled = styled.nav`
       height: 30px;
     }
   }
+  .nav_options{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .header-tag {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 12.5%;
+    align-items: center;
+    width: 120px;
+    height: 50%;
 
     a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      text-align: center;
 
       :hover {
         font-size: 20px;
@@ -115,22 +122,19 @@ const Header = () => {
           <LanguageLogo>{isTypescript ? "TS" : "JS"}</LanguageLogo>
         </div>
       </div>
-
-      {lib.map((item, index) => (
-        <div key={index} className="header-tag">
-          <Link to={item.link}>{item.text}</Link>
-        </div>
-      ))}
-
-      <Figure
-        onClick={isTypescript ? goJavascript : goTypescript}
-      >
+      <nav className="nav_options">
+        {lib.map((item, index) => (
+          <div key={index} className="header-tag">
+            <Link to={item.link}>{item.text}</Link>
+          </div>
+        ))}
+      </nav>
+      <Figure onClick={isTypescript ? goJavascript : goTypescript}>
         <div className="figure">
-          <LanguageLogo>
-            {!isTypescript ? "TS" : "JS"}
-          </LanguageLogo>
+          <LanguageLogo>{!isTypescript ? "TS" : "JS"}</LanguageLogo>
+          <p>change</p>
         </div>
-        <p>change</p>
+       
       </Figure>
     </Styled>
   );

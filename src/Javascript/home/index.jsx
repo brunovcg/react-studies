@@ -18,6 +18,7 @@ const Styled = styled.div`
 
   div {
     margin: 0 100px;
+    text-align: center;
   }
 `;
 

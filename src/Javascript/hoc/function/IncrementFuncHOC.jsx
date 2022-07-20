@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const incrementHOCFunc = (OriginalComponent) => {
+const IncrementHOCFunc = (OriginalComponent) => {
   const NewComponent = () => {
     const [counter, setCounter] = useState(0);
 
@@ -14,4 +14,4 @@ const incrementHOCFunc = (OriginalComponent) => {
   return NewComponent;
 };
 
-export default incrementHOCFunc;
+export default IncrementHOCFunc;

@@ -33,6 +33,10 @@ export const JSLinks = [
     text: "Class Components",
   },
   {
+    link: "/graphql",
+    text: "GraphQL",
+  },
+  {
     link: "/Sandbox",
     text: "Sand Box",
   },
@@ -69,6 +73,10 @@ export const TSLinks = [
   {
     link: "/typescript/classcomponent",
     text: "Class Components",
+  },
+  {
+    link: "/typescript/graphql",
+    text: "GraphQL",
   },
   {
     link: "/typescript/other",

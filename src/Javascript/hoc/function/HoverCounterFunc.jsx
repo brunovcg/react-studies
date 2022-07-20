@@ -1,5 +1,5 @@
 import styles from "../styles";
-import incrementHOCFunc from "./withCounterFuncHOC";
+import IncrementHOCFunc from "./IncrementFuncHOC";
 
 
 const HoverCounterFunc = (props) => {
@@ -13,4 +13,4 @@ const HoverCounterFunc = (props) => {
   );
 };
 
-export default incrementHOCFunc(HoverCounterFunc);
+export default IncrementHOCFunc(HoverCounterFunc);

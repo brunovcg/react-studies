@@ -1,4 +1,4 @@
-import incrementHOCFunc from "./withCounterFuncHOC";
+import IncrementHOCFunc from "./IncrementFuncHOC";
 
 const ClickCounterFunc = (props) => {
   return (
@@ -8,4 +8,4 @@ const ClickCounterFunc = (props) => {
   );
 };
 
-export default incrementHOCFunc(ClickCounterFunc);
+export default IncrementHOCFunc(ClickCounterFunc);
