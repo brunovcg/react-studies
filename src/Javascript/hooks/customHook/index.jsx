@@ -4,11 +4,9 @@ const CustomHook = () => {
   const [count, increment, decrement, reset] = useCounter(10, 2);
 
   return (
-    <div style={{ background: "lightgreen", padding: "20px" }}>
-      <h2>Custom Hook</h2>
+    <div>
       <p>Aqui estamos criando um hook, um caso simples de contador</p>
       <p>
-        {" "}
         {"Contador=>"} {count}
       </p>
       <div>

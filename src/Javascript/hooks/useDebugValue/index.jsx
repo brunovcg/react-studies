@@ -1,5 +1,4 @@
 import { useDebugValue, useState } from "react";
-import styles from "../styles";
 
 const UseDebugValueHook = () => {
   /*eslint-disable-next-line*/
@@ -8,9 +7,7 @@ const UseDebugValueHook = () => {
   useDebugValue(`teste:${teste}`);
 
   return (
-    <section style={styles.style4}>
-      <h2>useDebugValue</h2>
-
+    <section>
       <p>
         Utilizado para criar uma label no REACT devTools no navegador, abra o
         nevagador e o console do ReactDevTools{" "}

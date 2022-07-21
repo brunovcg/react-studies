@@ -55,7 +55,7 @@ const styles = {
   style20: { border: "1px solid black", padding: "20px" },
   style21: { border: "1px solid black", padding: "20px" },
   style22: { border: "1px solid black", padding: "20px" },
-  style23: { background: "orange", width: "fit-content" },
+  style23: { background: "orange", width: "fit-content", cursor:"pointer" },
 };
 
 export default styles;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "../styles";
 
 const UseEffectHook = () => {
   const [count, setCounter] = useState(0);
@@ -21,8 +20,7 @@ const UseEffectHook = () => {
   }, []);
 
   return (
-    <section style={styles.style5}>
-      <h2>useEffect</h2>
+    <section >
       <p>
         useEfect está alterando o estado de 'number' como efeito colateral as
         alterações do statdo 'count' (olhar código)

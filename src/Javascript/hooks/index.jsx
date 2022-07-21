@@ -7,7 +7,7 @@ import UseImperativeHandleHook from "./useImperativeHandle";
 import UseContextHook from "./useContext";
 import UseCallbackHook from "./useCallback";
 import UseMemoHook from "./useMemo";
-import CustomHook from "./customs";
+import CustomHook from "./customHook";
 import UseDebugValueHook from "./useDebugValue";
 import UseDeferedValueHook from "./useDeferedValue";
 import UseTransitionHook from "./useTransition";
@@ -21,7 +21,84 @@ const Hooks = () => {
     {
       title: "useState",
       Component: <UseStateHook />,
-      color: "red"
+      color: "#ef8282",
+    },
+    {
+      title: "useReduce",
+      Component: <UseReducerHook />,
+      color: "#e5ebb1",
+    },
+    {
+      title: "useEffect",
+      Component: <UseEffectHook />,
+      color: "#86bbdc",
+    },
+    {
+      title: "useLayoutEffect",
+      Component: <UseLayoutEffectHook />,
+      color: "#cb86dc",
+    },
+    {
+      title: "useRef",
+      Component: <UseRefHook />,
+      color: "#badc86",
+    },
+    {
+      title: "useImperativeHandle",
+      Component: <UseImperativeHandleHook />,
+      color: "#86a4dc",
+    },
+    {
+      title: "useContext",
+      Component: <UseContextHook />,
+      color: "#dcdb86",
+    },
+    {
+      title: "useCallback",
+      Component: <UseCallbackHook />,
+      color: "#badc86",
+    },
+    {
+      title: "useMemo",
+      Component: <UseMemoHook />,
+      color: "#d586dc",
+    },
+    {
+      title: "Custom Hooks",
+      Component: <CustomHook />,
+      color: "#86dcd6",
+    },
+    {
+      title: "useDebugValue",
+      Component: <UseDebugValueHook />,
+      color: "#f5e265",
+    },
+    {
+      title: "useDeferedValue ",
+      Component: <UseDeferedValueHook />,
+      color: "#65f567",
+    },
+    {
+      title: "useTransition ",
+      Component: <UseTransitionHook />,
+      color: "#eb65f5",
+    },
+
+    {
+      title: "useSyncExternalStore",
+      Component: <UseSyncExternalStore />,
+      color: "#65caf5",
+    },
+
+    {
+      title: "useInsertionEffect",
+      Component: <UseInsertionEffectHook />,
+      color: "#f5cf65",
+    },
+    {
+      title: "useId",
+      Component: <UseIdHook />,
+      color: "#a1f565",
     },
   ];
 
@@ -35,22 +112,6 @@ const Hooks = () => {
           color={item.color}
         />
       ))}
-
-      <UseReducerHook />
-      <UseEffectHook />
-      <UseLayoutEffectHook />
-      <UseRefHook />
-      <UseImperativeHandleHook />
-      <UseContextHook />
-      <UseCallbackHook />
-      <UseMemoHook />
-      <CustomHook />
-      <UseDebugValueHook />
-      <UseDeferedValueHook />
-      <UseTransitionHook />
-      <UseSyncExternalStore />
-      <UseInsertionEffectHook />
-      <UseIdHook />
     </main>
   );
 };

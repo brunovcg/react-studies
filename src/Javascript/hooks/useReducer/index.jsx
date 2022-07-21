@@ -21,8 +21,7 @@ const UseReduceHook = () => {
 
   return (
     <section>
-      <div style={styles.style13}>
-        <h2>useReducer</h2>
+      <div >
         <div style={styles.style14}>
           <h3>Uso Simples</h3>
           <p>
@@ -39,7 +38,7 @@ const UseReduceHook = () => {
           <button onClick={() => dispatch("reset")}>Resetar</button>
         </div>
       </div>
-      <div style={styles.style13}>
+      <div>
         <div style={styles.style17}>
           <UseReducerComplex />
         </div>

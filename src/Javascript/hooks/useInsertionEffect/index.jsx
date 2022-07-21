@@ -12,8 +12,7 @@ function UseInsertionEffectHook() {
     console.log("useInsertionEffect app is called");
   });
   return (
-    <section style={{ backgroundColor: "mediumPurple", padding: "20px" }}>
-      <h2>useInsertionEffect</h2>
+    <section>
       <p>
         useEffect(didUpdate) accepts a function that contains imperative,
         possibly effectful code, which are mutations, subscriptions, timers,
@@ -38,7 +37,6 @@ function UseInsertionEffectHook() {
       </p>
       <p>Look at the Console, it will render first for the component and it child</p>
       <Child />
-      <p>Random Text</p>
     </section>
   );
 }

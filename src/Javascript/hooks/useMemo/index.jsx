@@ -67,8 +67,7 @@ const UseMemoHook = () => {
   }, [getUsers]);
 
   return (
-    <section style={styles.style11}>
-      <h2>useMemo</h2>
+    <section >
       <input type="text" onChange={(evt) => setQuery(evt.target.value)} />
 
       <button onClick={() => setCount((old) => old + 1)}>force render</button>

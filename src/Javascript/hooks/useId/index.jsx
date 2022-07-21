@@ -4,9 +4,7 @@ import Comp3 from "./comp3";
 
 function UseIdHook() {
   return (
-    <section style={{ backgroundColor: "snow", padding: "20px" }}>
-      <h2>useId</h2>
-
+    <section>
       <p>
         In a Web application, there are cases that need unique ids, for example:
         , where the for attribute must be equal to the id attribute of the

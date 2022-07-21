@@ -13,8 +13,7 @@ const UseRefHook = () => {
   };
 
   return (
-    <section style={styles.style19}>
-      <h2>useRef</h2>
+    <section>
       <div style={styles.style20}>
         <h3>{"Usando algum atributo da <tag/>"}</h3>
         <p>useRef está acionando a prop 'focus' do input</p>

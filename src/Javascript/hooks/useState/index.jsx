@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../styles";
 
 const UseStateHook = () => {
   const [counter, setCounter] = useState(0);
@@ -8,10 +7,9 @@ const UseStateHook = () => {
     setCounter((prev) => ++prev);
   };
 
-
   return (
 
-    <section style={styles.style18}>
+    <section>
       <p>useState está alterando o estado de counter</p>
       <div>Clicks: {counter}</div>
       <button onClick={onIncreaseHandler}>Adicionar +1</button>

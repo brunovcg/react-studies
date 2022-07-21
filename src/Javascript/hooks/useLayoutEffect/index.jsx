@@ -1,5 +1,4 @@
 import { useEffect, useState, useLayoutEffect } from "react";
-import styles from "../styles";
 
 const UseLayoutEffectHook = () => {
   const [change, setChange] = useState(true);
@@ -22,8 +21,7 @@ const UseLayoutEffectHook = () => {
   }, [change]);
 
   return (
-    <section style={styles.style8}>
-      <h2>useLayoutEffect</h2>
+    <section>
       <p>
         Clique no botão 'change' com o console aberto. Verá que o layout effect
         sempre é renderizado primeiro, O useLayoutEffect é acionado
