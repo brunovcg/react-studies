@@ -56,8 +56,10 @@ const Styled = styled.div`
     align-items: center;
     width: 120px;
     height: 50%;
-    border: 1px solid rgb(170, 154, 10);
-    background-color: rgb(170, 154, 10);
+    border: ${(props) =>
+          props.color === "JS" ? "1px solid rgb(170, 154, 10)": "1px solid #bed3ff"};
+    background-color: ${(props) =>
+          props.color === "JS" ? "rgb(170, 154, 10)": "#3a76f8"};
 
     a {
       color: white;

@@ -14,11 +14,28 @@ import UseTransitionHook from "./useTransition";
 import UseSyncExternalStore from "./useSyncExternalStore";
 import UseInsertionEffectHook from "./useInsertionEffect";
 import UseIdHook from "./useId";
+import HookSection from "../../components/hook-section";
 
 const Hooks = () => {
+  const sections = [
+    {
+      title: "useState",
+      Component: <UseStateHook />,
+      color: "red"
+    },
+  ];
+
   return (
     <main>
-      <UseStateHook />
+      {sections?.map((item) => (
+        <HookSection
+          title={item.title}
+          Component={item.Component}
+          key={item.title}
+          color={item.color}
+        />
+      ))}
+
       <UseReducerHook />
       <UseEffectHook />
       <UseLayoutEffectHook />
@@ -33,7 +50,7 @@ const Hooks = () => {
       <UseTransitionHook />
       <UseSyncExternalStore />
       <UseInsertionEffectHook />
-      <UseIdHook/>
+      <UseIdHook />
     </main>
   );
 };

@@ -39,7 +39,7 @@ const UseReduceHook = () => {
           <button onClick={() => dispatch("reset")}>Resetar</button>
         </div>
       </div>
-      <div style={styles.style17}>
+      <div style={styles.style13}>
         <div style={styles.style17}>
           <UseReducerComplex />
         </div>
