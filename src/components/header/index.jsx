@@ -23,7 +23,7 @@ const Styled = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 0 20px 0;
 
   .image-box {
     display: flex;
@@ -40,7 +40,7 @@ const Styled = styled.div`
       height: 30px;
     }
   }
-  .nav_options{
+  .nav_options {
     height: 90%;
     width: 80%;
     display: flex;
@@ -57,9 +57,11 @@ const Styled = styled.div`
     width: 120px;
     height: 50%;
     border: ${(props) =>
-          props.color === "JS" ? "1px solid rgb(170, 154, 10)": "1px solid #bed3ff"};
+      props.color === "JS"
+        ? "1px solid rgb(216, 207, 119)"
+        : "1px solid #bed3ff"};
     background-color: ${(props) =>
-          props.color === "JS" ? "rgb(170, 154, 10)": "#3a76f8"};
+      props.color === "JS" ? "rgb(170, 154, 10)" : "#3a76f8"};
 
     a {
       color: white;
@@ -92,7 +94,7 @@ const Figure = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
   }
 
@@ -134,7 +136,9 @@ const Header = () => {
       <nav className="nav_options">
         {lib.map((item, index) => (
           <div key={index} className="header-tag">
-            <Link to={item.link}>{item.text}</Link>
+            <Link onClick={() => console.clear()} to={item.link}>
+              {item.text}
+            </Link>
           </div>
         ))}
       </nav>
@@ -143,7 +147,6 @@ const Header = () => {
           <LanguageLogo>{!isTypescript ? "TS" : "JS"}</LanguageLogo>
           <p>go to</p>
         </div>
-       
       </Figure>
     </Styled>
   );
