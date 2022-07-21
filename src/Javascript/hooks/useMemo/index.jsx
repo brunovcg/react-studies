@@ -67,7 +67,7 @@ const UseMemoHook = () => {
   }, [getUsers]);
 
   return (
-    <div style={styles.style11}>
+    <section style={styles.style11}>
       <h2>useMemo</h2>
       <input type="text" onChange={(evt) => setQuery(evt.target.value)} />
 
@@ -80,7 +80,7 @@ const UseMemoHook = () => {
         <UserList users={users} query={query} />
       </div>
       <div>{count}</div>
-    </div>
+    </section>
   );
 };
 

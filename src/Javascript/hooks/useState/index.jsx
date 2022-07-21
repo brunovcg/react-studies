@@ -9,12 +9,12 @@ const UseStateHook = () => {
   };
 
   return (
-    <div style={styles.style18}>
+    <section style={styles.style18}>
       <h2>useState</h2>
       <p>useState está alterando o estado de counter</p>
       <div>Clicks: {counter}</div>
       <button onClick={onIncreaseHandler}>Adicionar +1</button>
-    </div>
+    </section>
   );
 };
 

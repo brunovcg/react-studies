@@ -3,7 +3,7 @@ import styles from "./styles";
 
 const PortalModal = () => {
   return ReactDOM.createPortal(
-    <div
+    <section
       style={styles.style1}
     >
       <h2>PORTAL</h2>
@@ -13,7 +13,7 @@ const PortalModal = () => {
         isso é um modal dentro de um portal, esta sendo anexado a outro node,
         não o root. No Console, olhe onde está sendo implementado!
       </div>
-    </div>,
+    </section>,
     document.getElementById("portal")
   );
 };

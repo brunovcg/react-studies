@@ -10,7 +10,7 @@ const UseContextHook = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div style={styles.style3}>
+    <section style={styles.style3}>
       <h2>useContext</h2>
       <p>
         É utilizado para passar o contexto de um component para outro, quando
@@ -22,7 +22,7 @@ const UseContextHook = () => {
         <Consumer />
         <Sender />
       </ProviderContext.Provider>
-    </div>
+    </section>
   );
 };
 

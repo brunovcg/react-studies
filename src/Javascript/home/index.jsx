@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import reactLogo from "../../assets/react.ico"
+import reactLogo from "../../assets/react.ico";
 
 const Styled = styled.div`
   width: 100%;
@@ -22,10 +22,10 @@ const Styled = styled.div`
   }
 `;
 
-const Home = () => {
+export default function Home() {
   return (
     <Styled>
-       <img src={reactLogo} style={{width: "100px"}} alt="react" />
+      <img src={reactLogo} style={{ width: "100px" }} alt="react" />
       <h2>Exemplos de alguns usos de recursos do React.js</h2>
       <div>
         {" "}
@@ -33,6 +33,4 @@ const Home = () => {
       </div>
     </Styled>
   );
-};
-
-export default Home;
+}

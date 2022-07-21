@@ -17,7 +17,7 @@ import UseIdHook from "./useId";
 
 const Hooks = () => {
   return (
-    <div>
+    <main>
       <UseStateHook />
       <UseReducerHook />
       <UseEffectHook />
@@ -34,7 +34,7 @@ const Hooks = () => {
       <UseSyncExternalStore />
       <UseInsertionEffectHook />
       <UseIdHook/>
-    </div>
+    </main>
   );
 };
 

@@ -13,7 +13,7 @@ const UseRefHook = () => {
   };
 
   return (
-    <div style={styles.style19}>
+    <section style={styles.style19}>
       <h2>useRef</h2>
       <div style={styles.style20}>
         <h3>{"Usando algum atributo da <tag/>"}</h3>
@@ -48,7 +48,7 @@ const UseRefHook = () => {
 
         <div>Olhe o Console após clicar</div>
       </div>
-    </div>
+    </section>
   );
 };
 

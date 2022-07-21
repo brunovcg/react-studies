@@ -22,7 +22,7 @@ const UseLayoutEffectHook = () => {
   }, [change]);
 
   return (
-    <div style={styles.style8}>
+    <section style={styles.style8}>
       <h2>useLayoutEffect</h2>
       <p>
         Clique no botão 'change' com o console aberto. Verá que o layout effect
@@ -36,7 +36,7 @@ const UseLayoutEffectHook = () => {
       </p>
 
       <button onClick={handleChange}>Trocar</button>
-    </div>
+    </section>
   );
 };
 

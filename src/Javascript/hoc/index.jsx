@@ -6,7 +6,7 @@ import styles from "./styles";
 
 const HOC = () => {
   return (
-    <div style={styles.style3}>
+    <section style={styles.style3}>
       <h2>Higher Order Components</h2>
       <p>
         Ambos onClick e OnMouse over estão usando a mesma lógica de
@@ -22,7 +22,7 @@ const HOC = () => {
 
       <ClickCounterFunc />
       <HoverCounterFunc />
-    </div>
+    </section>
   );
 };
 

@@ -19,10 +19,11 @@ const Styled = styled.div`
   background-color: ${(props) =>
     props.color === "JS" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px 0;
 
   .image-box {
     display: flex;
@@ -40,10 +41,12 @@ const Styled = styled.div`
     }
   }
   .nav_options{
-    height: 100%;
+    height: 90%;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
   }
 
   .header-tag {
@@ -53,6 +56,8 @@ const Styled = styled.div`
     align-items: center;
     width: 120px;
     height: 50%;
+    border: 1px solid rgb(170, 154, 10);
+    background-color: rgb(170, 154, 10);
 
     a {
       color: white;
@@ -85,6 +90,8 @@ const Figure = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0;
+    justify-content:center;
+    align-items: center;
   }
 
   p {
@@ -132,7 +139,7 @@ const Header = () => {
       <Figure onClick={isTypescript ? goJavascript : goTypescript}>
         <div className="figure">
           <LanguageLogo>{!isTypescript ? "TS" : "JS"}</LanguageLogo>
-          <p>change</p>
+          <p>go to</p>
         </div>
        
       </Figure>

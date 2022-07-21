@@ -24,7 +24,7 @@ const UseCallbackHook = () => {
   });
 
   return (
-    <div style={styles.style1}>
+    <section style={styles.style1}>
       <h2>useCallback</h2>
       <ParentComponent />
       <div>------------------------------</div>
@@ -33,7 +33,7 @@ const UseCallbackHook = () => {
       <Button onClick={useCallback(() => setCount((old) => old + 1), [])}>
         Incrementa
       </Button>
-    </div>
+    </section>
   );
 };
 

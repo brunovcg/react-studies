@@ -6,7 +6,7 @@ const UseImperativeHandleHook = () => {
   const childRef = useRef(null);
 
   return (
-    <div style={styles.style6}>
+    <section style={styles.style6}>
       <h2>useImperativeHandle</h2>
       <p>
         usa o useRef para criar uma referencia passada a um component 'child',
@@ -19,7 +19,7 @@ const UseImperativeHandleHook = () => {
       </button>
       <Child ref={childRef} />
  
-    </div>
+    </section>
   );
 };
 

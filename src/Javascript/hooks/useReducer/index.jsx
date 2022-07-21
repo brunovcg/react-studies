@@ -20,7 +20,7 @@ const UseReduceHook = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div>
+    <section>
       <div style={styles.style13}>
         <h2>useReducer</h2>
         <div style={styles.style14}>
@@ -44,7 +44,7 @@ const UseReduceHook = () => {
           <UseReducerComplex />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

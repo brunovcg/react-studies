@@ -21,7 +21,7 @@ const UseEffectHook = () => {
   }, []);
 
   return (
-    <div style={styles.style5}>
+    <section style={styles.style5}>
       <h2>useEffect</h2>
       <p>
         useEfect está alterando o estado de 'number' como efeito colateral as
@@ -29,7 +29,7 @@ const UseEffectHook = () => {
       </p>
       <div>Clicks = {number}</div>
       <button onClick={handleAdd}>Adicionar +1</button>
-    </div>
+    </section>
   );
 };
 
