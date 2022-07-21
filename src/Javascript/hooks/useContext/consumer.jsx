@@ -1,8 +1,9 @@
 import styles from "../styles";
-import { useProvider } from "./provider";
+import { ProviderContext } from "./";
+import { useContext } from "react";
 
 const Consumer = () => {
-  const { count } = useProvider();
+  const { count } = useContext(ProviderContext);
 
   return <div style={styles.style2}>{count}</div>;
 };

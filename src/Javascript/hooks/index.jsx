@@ -9,6 +9,11 @@ import UseCallbackHook from "./useCallback";
 import UseMemoHook from "./useMemo";
 import CustomHook from "./customs";
 import UseDebugValueHook from "./useDebugValue";
+import UseDeferedValueHook from "./useDeferedValue";
+import UseTransitionHook from "./useTransition";
+import UseSyncExternalStore from "./useSyncExternalStore";
+import UseInsertionEffectHook from "./useInsertionEffect";
+import UseIdHook from "./useId";
 
 const Hooks = () => {
   return (
@@ -24,6 +29,11 @@ const Hooks = () => {
       <UseMemoHook />
       <CustomHook />
       <UseDebugValueHook />
+      <UseDeferedValueHook />
+      <UseTransitionHook />
+      <UseSyncExternalStore />
+      <UseInsertionEffectHook />
+      <UseIdHook/>
     </div>
   );
 };

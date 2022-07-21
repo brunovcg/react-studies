@@ -5,11 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { client } from "./services/";
 import { ApolloProvider } from "@apollo/client";
 
-const rootElement = document.getElementById("root");
-
-if (!rootElement) throw new Error("Failed to find the root element");
-
-const root = ReactDOM.createRoot(rootElement);
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 root.render(
   <React.StrictMode>

@@ -1,7 +1,8 @@
-import { useProvider } from "./provider";
+import { ProviderContext } from "./";
+import { useContext } from "react";
 
 const Sender = () => {
-  const { setCount, count } = useProvider();
+  const { setCount, count } = useContext(ProviderContext);
 
   return (
     <div>
