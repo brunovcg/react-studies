@@ -144,7 +144,7 @@ const Header = () => {
       </nav>
       <Figure onClick={isTypescript ? goJavascript : goTypescript}>
         <div className="figure">
-          <LanguageLogo>{!isTypescript ? "TS" : "JS"}</LanguageLogo>
+          <LanguageLogo applyHover >{!isTypescript ? "TS" : "JS"}</LanguageLogo>
           <p>go to</p>
         </div>
       </Figure>
