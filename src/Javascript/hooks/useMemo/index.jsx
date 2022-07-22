@@ -1,84 +1,44 @@
-import { useMemo, useEffect, useState, useCallback } from "react";
-import axios from "axios";
-import styles from "../styles"
+import { useState, useMemo } from "react";
 
-// -------------------------------------------------------------------
-const filterMemo = (users, query) => {
-  console.log("-----filter MEMO----------");
-  return users.filter((users) =>
-    query ? users.name.toLowerCase().includes(query?.toLowerCase()) : users
-  );
-};
-
-const UserListMemo = ({ users, query }) => {
-  const filtered = useMemo(() => filterMemo(users, query), [users, query]);
-
-  return (
-    <div
-      style={styles.style9}
-    >
-      {filtered.map((user) => (
-        <div key={user.id}>{user.name}</div>
-      ))}
-    </div>
-  );
-};
-
-// -------------------------------------------------------------------
-
-const filter = (users, query) => {
-  console.log("-----filter----------");
-  return users.filter((users) =>
-    query ? users.name.toLowerCase().includes(query?.toLowerCase()) : users
-  );
-};
-
-const UserList = ({ users, query }) => {
-  const filtered = filter(users, query);
-
-  return (
-    <div
-      style={styles.style10}
-    >
-      {filtered.map((user) => (
-        <div key={user.id}>{user.name}</div>
-      ))}
-    </div>
-  );
-};
-
-// -------------------------------------------------------------------
+import styles from "../styles";
 
 const UseMemoHook = () => {
-  // useCallback compara a função, useMemo a execução da função.
   const [count, setCount] = useState(0);
-  const [query, setQuery] = useState();
-  const [users, setUsers] = useState([]);
+  const [countMemo, setCountMemo] = useState(0);
 
-  const getUsers = useCallback(async () => {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users/"
-    );
-    setUsers(data);
-  }, []);
+  const myListMemoized = useMemo(() => {
+    console.log(`-- MEMOIZED PRINTED: ${countMemo} --`);
 
-  useEffect(() => {
-    getUsers();
-  }, [getUsers]);
+    return `Essa é uma texto com memo ${countMemo}`;
+  }, [countMemo]);
+
+  const myList = () => {
+    console.log(`-- Lista normal: ${count} --`);
+    return `Lista sem memo - conter:${count}`;
+  };
 
   return (
-    <section >
-      <input type="text" onChange={(evt) => setQuery(evt.target.value)} />
-
+    <section>
       <button onClick={() => setCount((old) => old + 1)}>force render</button>
+      <button
+        onClick={() => {
+          setCount((old) => old + 1);
+          setCountMemo((old) => old + 1);
+        }}
+      >
+        force render changing MEMO
+      </button>
+      <p>
+        Diferentemente do useCallback, o useMemo memoiza a execução e resultado da função.
+        Aqui duas listas, um com useMemo e um senha. Ao clicar nas renderizações
+        forçadas repare quais os logs gerados. A lista com memo so é
+        re-renderizada quando a varíavel no array de Dependência é alterada.
+        Repare os contadores de renderização, olhe tb no console.log as funcoes
+        sendo chamadas
+      </p>
 
-      <div style={styles.style12}>
-        <UserListMemo users={users} query={query} />
-      </div>
-      <div style={styles.style12}>
-        <UserList users={users} query={query} />
-      </div>
-      <div>{count}</div>
+      <div style={styles.style12}>{myListMemoized}</div>
+      <div style={styles.style12}>{myList()}</div>
     </section>
   );
 };
