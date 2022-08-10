@@ -10,7 +10,7 @@ import StyledComponents from "../Javascript/styled-components";
 import ClassComponents from "../Javascript/Class";
 import GraphQLComponent from "../Javascript/graphql";
 import GraphQLComponentType from "../typescript/graphql";
-import SandBox from "../Javascript/sandBox";
+import { SandBox } from "../Javascript/sandBox";
 import PropsType from "../typescript/Props";
 import ReduxType from "../typescript/redux";
 import HooksType from "../typescript/hooks";
