@@ -1,26 +1,23 @@
-// import App from "./sandClass";
-//import App from "./sandFunction";
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 import { styles } from "./styles";
 
 const ScrollableContainer = ({ options, scrollLength }) => {
   const containerRef = useRef(null);
   const [referedOptions, setReferedOptions] = useState([]);
-  const [refsVisibility, setRefsVisibility] = useState([]);
-  const [scrollLine, setScrollLine] = useState({});
+  const [scrollLinkedList, setScrollLinkedList] = useState({});
 
   const checkIfIsVisible = (itemRef) => {
     const containerStart = containerRef?.current?.getBoundingClientRect().x;
     const containerEnd = containerRef?.current?.offsetWidth + containerStart;
     const itemStart = itemRef?.current?.getBoundingClientRect().x;
     const itemEnd = itemRef?.current?.offsetWidth + itemStart;
-    if (
-      Math.floor(containerStart) <= Math.floor(itemStart) &&
-      Math.floor(containerEnd) >= Math.floor(itemEnd)
-    ) {
-      return true;
-    }
-    return false;
+    return containerStart * 0.98 <= itemStart && containerEnd * 1.02 >= itemEnd;
   };
 
   const scrollToNextItem = () => {
@@ -28,10 +25,10 @@ const ScrollableContainer = ({ options, scrollLength }) => {
       containerRef.current.getBoundingClientRect().x;
     const containerSize = containerRef.current.offsetWidth;
     const nextItemStartPosition =
-      referedOptions[scrollLine.next].ref.current.getBoundingClientRect().x;
+      referedOptions[scrollLinkedList.next].ref.current.getBoundingClientRect()
+        .x;
     const nextItemSize =
-      referedOptions[scrollLine.next].ref.current.offsetWidth;
-
+      referedOptions[scrollLinkedList.next].ref.current.offsetWidth;
     return (
       nextItemStartPosition -
       containerStartPosition -
@@ -43,13 +40,13 @@ const ScrollableContainer = ({ options, scrollLength }) => {
   const scrollToPreviousItem = () => {
     const containerCurrentScrollPosition = containerRef.current.scrollLeft;
     const previousItemStartPosition = referedOptions
-      .filter((item, index) => index < scrollLine.previous)
+      .filter((item, index) => index < scrollLinkedList.previous)
       .reduce((acc, next) => acc + next.ref.current.clientWidth, 0);
 
     return containerCurrentScrollPosition - previousItemStartPosition;
   };
 
-  const updateRefsVisibility = () => {
+  const updateRefsVisibility = useCallback(() => {
     const checkedRefs = [...referedOptions].map((item) =>
       checkIfIsVisible(item.ref)
     );
@@ -58,12 +55,11 @@ const ScrollableContainer = ({ options, scrollLength }) => {
     const previous = firstTrueIndex === 0 ? null : firstTrueIndex - 1;
     const next =
       lastTrueIndex === checkedRefs.length - 1 ? null : lastTrueIndex + 1;
-    setScrollLine({
+    setScrollLinkedList({
       previous,
       next,
     });
-    setRefsVisibility(checkedRefs);
-  };
+  }, [referedOptions]);
 
   const insertRefsIntoOptions = () => {
     setReferedOptions(
@@ -81,12 +77,12 @@ const ScrollableContainer = ({ options, scrollLength }) => {
 
   useEffect(() => {
     updateRefsVisibility();
-  }, [referedOptions]);
+  }, [referedOptions, updateRefsVisibility]);
 
   return (
     <div style={styles.mainContainer}>
       <div style={styles.buttonContainer}>
-        {!refsVisibility[0] ? (
+        {scrollLinkedList.previous !== null ? (
           <button
             style={styles.button}
             onClick={() => {
@@ -107,7 +103,7 @@ const ScrollableContainer = ({ options, scrollLength }) => {
         ))}
       </div>
       <div style={styles.buttonContainer}>
-        {!refsVisibility.at(-1) ? (
+        {scrollLinkedList.next ? (
           <button
             style={styles.button}
             onClick={() => {
@@ -144,7 +140,7 @@ export const SandBox = () => {
 
   return (
     <div style={{ margin: "30px", width: "800px" }}>
-      <ScrollableContainer options={options} />
+      <ScrollableContainer options={options} scrollLength={false} />
     </div>
   );
 };
