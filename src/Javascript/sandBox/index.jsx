@@ -126,31 +126,25 @@ const ScrollableContainer = ({ options, scrollLength }) => {
 
 export const SandBox = () => {
   const options = [
-    { component: <div style={styles.content1}>Text1</div> },
-    { component: <div style={styles.content2}>Text2</div> },
-    { component: <div style={styles.content1}>Text3</div> },
-    { component: <div style={styles.content2}>Text4</div> },
-    { component: <div style={styles.content1}>Text5</div> },
-    { component: <div style={styles.content2}>Text6</div> },
-    { component: <div style={styles.content1}>Text7</div> },
-    { component: <div style={styles.content2}>Text8</div> },
-    { component: <div style={styles.content1}>Text9</div> },
-    {
-      component: <div style={styles.content2}>Text10</div>,
-    },
-    {
-      component: <div style={styles.content1}>Text11</div>,
-    },
-    {
-      component: <div style={styles.content2}>Text12</div>,
-    },
-    {
-      component: <div style={styles.content1}>Text13</div>,
-    },
-    {
-      component: <div style={styles.content2}>Text14</div>,
-    },
+    { component: <div style={styles.content1}>component 1</div> },
+    { component: <div style={styles.content2}>component 2</div> },
+    { component: <div style={styles.content1}>component 3</div> },
+    { component: <div style={styles.content2}>component 4</div> },
+    { component: <div style={styles.content1}>component 5</div> },
+    { component: <div style={styles.content2}>component 6</div> },
+    { component: <div style={styles.content1}>component 7</div> },
+    { component: <div style={styles.content2}>component 8</div> },
+    { component: <div style={styles.content1}>component 9</div> },
+    { component: <div style={styles.content2}>component 10</div> },
+    { component: <div style={styles.content1}>component 11</div> },
+    { component: <div style={styles.content2}>component 12</div> },
+    { component: <div style={styles.content1}>component 13</div> },
+    { component: <div style={styles.content2}>component 14</div> },
   ];
 
-  return <ScrollableContainer options={options} />;
+  return (
+    <div style={{ margin: "30px", width: "800px" }}>
+      <ScrollableContainer options={options} />
+    </div>
+  );
 };
