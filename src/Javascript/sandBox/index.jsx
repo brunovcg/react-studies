@@ -1,42 +1,90 @@
 // import App from "./sandClass";
 //import App from "./sandFunction";
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 
-const ScrolledContainer = ({ options }) => {
+const ScrolledContainer = ({ options, scrollLength }) => {
   const containerRef = useRef(null);
-  const [referedOptions, setReferedOptions] = useState(options);
+  const [referedOptions, setReferedOptions] = useState([]);
+  const [refsVisibility, setRefsVisibility] = useState([]);
+  const [scrollLine, setScrollLine] = useState({});
 
   const checkIfIsVisible = (itemRef) => {
     const containerStart = containerRef?.current?.getBoundingClientRect().x;
     const containerEnd = containerRef?.current?.offsetWidth + containerStart;
     const itemStart = itemRef?.current?.getBoundingClientRect().x;
     const itemEnd = itemRef?.current?.offsetWidth + itemStart;
-    if (containerStart <= itemStart && containerEnd >= itemEnd) {
+    if (
+      Math.floor(containerStart) <= Math.floor(itemStart) &&
+      Math.floor(containerEnd) >= Math.floor(itemEnd)
+    ) {
       return true;
     }
     return false;
   };
 
+  const scrollToNextItem = () => {
+    const containerStartPosition =
+      containerRef.current.getBoundingClientRect().x;
+    const containerSize = containerRef.current.offsetWidth;
+    const nextItemStartPosition =
+      referedOptions[scrollLine.next].ref.current.getBoundingClientRect().x;
+    const nextItemSize =
+      referedOptions[scrollLine.next].ref.current.offsetWidth;
+
+    return (
+      nextItemStartPosition -
+      containerStartPosition -
+      containerSize +
+      nextItemSize
+    );
+  };
+
+  //! position
+  const scrollToPreviousItem = () => {
+    console.log(scrollLine.previous);
+    const containerStartPosition =
+      containerRef.current.getBoundingClientRect().x;
+    const containerSize = containerRef.current.offsetWidth;
+    const previousItemStartPosition =
+      referedOptions[scrollLine.previous].ref.current.getBoundingClientRect().x;
+    const previousItemSize =
+      referedOptions[scrollLine.previous].ref.current.offsetWidth;
+
+    const containerCurrentScrollPosition = containerRef.current.scrollLeft;
+
+    const position = referedOptions.filter(
+      (item, index) => index < scrollLine.previous
+    ).reduce((acc, next)=> acc+ next.ref.current.offsetWidth);
+
+    console.log(containerCurrentScrollPosition - previousItemStartPosition);
+
+    return containerCurrentScrollPosition + position;
+  };
+
   const updateRefsVisibility = () => {
-    const updatedRefs = [...referedOptions].map((item) => ({
-      ...item,
-      isVisvisible: checkIfIsVisible(item.ref),
-    }));
-
-    setReferedOptions(updatedRefs);
-  };
-
-  const insertRefsIntoOptions = (items) => {
-    let refs = [...items];
-    items.forEach((item, index) => {
-      const ref = React.createRef();
-      refs[index].ref = ref;
+    const checkedRefs = [...referedOptions].map((item) =>
+      checkIfIsVisible(item.ref)
+    );
+    const firstTrueIndex = checkedRefs.indexOf(true);
+    const lastTrueIndex = checkedRefs.lastIndexOf(true);
+    const previous = firstTrueIndex === 0 ? null : firstTrueIndex - 1;
+    const next =
+      lastTrueIndex === checkedRefs.length - 1 ? null : lastTrueIndex + 1;
+    setScrollLine({
+      previous,
+      next,
     });
-    return refs;
+    setRefsVisibility(checkedRefs);
   };
 
-  useEffect(() => {
-    setReferedOptions(insertRefsIntoOptions(referedOptions));
+  const insertRefsIntoOptions = () => {
+    setReferedOptions(
+      [...options].map((item) => ({ ...item, ref: React.createRef() }))
+    );
+  };
+
+  useLayoutEffect(() => {
+    insertRefsIntoOptions();
   }, []);
 
   useEffect(() => {
@@ -45,42 +93,73 @@ const ScrolledContainer = ({ options }) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <button
-        onClick={() => {
-          containerRef.current.scrollLeft -= 40;
-          updateRefsVisibility();
-        }}
-      >
-        &lt;
-      </button>
+      <div style={{ width: "40px", backgroundColor: "grey" }}>
+        {!refsVisibility[0] ? (
+          <button
+            style={{ width: "100%", height: "100%" }}
+            onClick={() => {
+              containerRef.current.scrollLeft -= scrollToPreviousItem();
+              updateRefsVisibility();
+            }}
+          >
+            &lt;
+          </button>
+        ) : null}
+      </div>
       <div
-        className="bruno"
         ref={containerRef}
         style={{
           width: "600px",
           height: "50px",
           backgroundColor: "red",
           display: "flex",
-          gap: "50px",
           alignItems: "center",
           overflow: "hidden",
         }}
       >
         {referedOptions?.map((item) => (
-          <div key={item.id} ref={item.ref}>
+          <div
+            key={item.id}
+            ref={item.ref}
+            style={{
+              width: "fit-content",
+              padding: "10px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             {item.component}
           </div>
         ))}
       </div>
+      <div style={{ width: "40px", backgroundColor: "grey" }}>
+        {!refsVisibility.at(-1) ? (
+          <button
+            style={{ width: "100%", height: "100%" }}
+            onClick={() => {
+              containerRef.current.scrollLeft +=
+                scrollLength || scrollToNextItem();
+              updateRefsVisibility();
+            }}
+          >
+            &gt;
+          </button>
+        ) : null}
+      </div>
       <button
-        onClick={() => {
-          containerRef.current.scrollLeft += 40;
-          updateRefsVisibility();
-        }}
+        onClick={() =>
+          console.log(
+            containerRef.current.scrollLeft,
+            referedOptions[
+              scrollLine.previous
+            ]?.ref?.current.getBoundingClientRect().x,
+            scrollLine.previous
+          )
+        }
       >
-        &gt;
+        xxx
       </button>
-      <button onClick={() => console.log(referedOptions)}>xxx</button>
+      <button onClick={() => console.log(refsVisibility)}>ver</button>
     </div>
   );
 };
@@ -99,6 +178,22 @@ export const SandBox = () => {
     {
       id: 10,
       component: <div>Text10</div>,
+    },
+    {
+      id: 11,
+      component: <div>Text11</div>,
+    },
+    {
+      id: 12,
+      component: <div>Text12</div>,
+    },
+    {
+      id: 13,
+      component: <div>Text13</div>,
+    },
+    {
+      id: 14,
+      component: <div>Text14</div>,
     },
   ];
 
