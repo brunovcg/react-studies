@@ -12,14 +12,6 @@ const ScrollableContainer = ({ options, scrollLength }) => {
   const [referedOptions, setReferedOptions] = useState([]);
   const [scrollLinkedList, setScrollLinkedList] = useState({});
 
-  const checkIfIsVisible = (itemRef) => {
-    const containerStart = containerRef?.current?.getBoundingClientRect().x;
-    const containerEnd = containerRef?.current?.offsetWidth + containerStart;
-    const itemStart = itemRef?.current?.getBoundingClientRect().x;
-    const itemEnd = itemRef?.current?.offsetWidth + itemStart;
-    return containerStart * 0.98 <= itemStart && containerEnd * 1.02 >= itemEnd;
-  };
-
   const scrollToNextItem = () => {
     const containerStartPosition =
       containerRef.current.getBoundingClientRect().x;
@@ -45,6 +37,13 @@ const ScrollableContainer = ({ options, scrollLength }) => {
 
     return containerCurrentScrollPosition - previousItemStartPosition;
   };
+  const checkIfIsVisible = (itemRef) => {
+    const containerStart = containerRef?.current?.getBoundingClientRect().x;
+    const containerEnd = containerRef?.current?.offsetWidth + containerStart;
+    const itemStart = itemRef?.current?.getBoundingClientRect().x;
+    const itemEnd = itemRef?.current?.offsetWidth + itemStart;
+    return containerStart * 0.98 <= itemStart && containerEnd * 1.02 >= itemEnd;
+  };
 
   const updateRefsVisibility = useCallback(() => {
     const checkedRefs = [...referedOptions].map((item) =>
@@ -60,6 +59,15 @@ const ScrollableContainer = ({ options, scrollLength }) => {
       next,
     });
   }, [referedOptions]);
+
+  const handleNext = () => {
+    containerRef.current.scrollLeft += scrollLength || scrollToNextItem();
+    updateRefsVisibility();
+  };
+  const handlePrevious = () => {
+    containerRef.current.scrollLeft -= scrollLength || scrollToPreviousItem();
+    updateRefsVisibility();
+  };
 
   const insertRefsIntoOptions = () => {
     setReferedOptions(
@@ -83,14 +91,7 @@ const ScrollableContainer = ({ options, scrollLength }) => {
     <div style={styles.mainContainer}>
       <div style={styles.buttonContainer}>
         {scrollLinkedList.previous !== null ? (
-          <button
-            style={styles.button}
-            onClick={() => {
-              containerRef.current.scrollLeft -=
-                scrollLength || scrollToPreviousItem();
-              updateRefsVisibility();
-            }}
-          >
+          <button style={styles.button} onClick={handlePrevious}>
             &lt;
           </button>
         ) : null}
@@ -104,14 +105,7 @@ const ScrollableContainer = ({ options, scrollLength }) => {
       </div>
       <div style={styles.buttonContainer}>
         {scrollLinkedList.next ? (
-          <button
-            style={styles.button}
-            onClick={() => {
-              containerRef.current.scrollLeft +=
-                scrollLength || scrollToNextItem();
-              updateRefsVisibility();
-            }}
-          >
+          <button style={styles.button} onClick={handleNext}>
             &gt;
           </button>
         ) : null}
