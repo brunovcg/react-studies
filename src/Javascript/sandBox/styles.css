@@ -1,0 +1,22 @@
+.n-scrollable-container {
+  display: flex;
+  min-width: 100%;
+  width: 100%;
+}
+
+.n-scrollable-container .n-scrollable-container-button-container {
+  min-width: 50px;
+  flex-grow: 0;
+}
+
+.n-scrollable-container .n-scrollable-container-components-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.n-scrollable-container .n-scrollable-container-component {
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+}

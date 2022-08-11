@@ -1,9 +1,9 @@
 export const styles = {
   mainContainer: { display: "flex", border: "1px solid black", width: "100%" },
-  buttonContainer: { minWidth: "50px", backgroundColor: "grey", flewGrow: 0 },
+  buttonContainer: { minWidth: "50px", backgroundColor: "grey"},
   button: { width: "100%", height: "100%" },
   componentsContainer: {
-    flewGrow: 1,
+    flexGrow: 1,
     height: "50px",
     display: "flex",
     alignItems: "center",
