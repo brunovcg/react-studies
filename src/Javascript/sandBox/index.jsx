@@ -1,8 +1,9 @@
 // import App from "./sandClass";
 //import App from "./sandFunction";
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { styles } from "./styles";
 
-const ScrolledContainer = ({ options, scrollLength }) => {
+const ScrollableContainer = ({ options, scrollLength }) => {
   const containerRef = useRef(null);
   const [referedOptions, setReferedOptions] = useState([]);
   const [refsVisibility, setRefsVisibility] = useState([]);
@@ -39,26 +40,13 @@ const ScrolledContainer = ({ options, scrollLength }) => {
     );
   };
 
-  //! position
   const scrollToPreviousItem = () => {
-    console.log(scrollLine.previous);
-    const containerStartPosition =
-      containerRef.current.getBoundingClientRect().x;
-    const containerSize = containerRef.current.offsetWidth;
-    const previousItemStartPosition =
-      referedOptions[scrollLine.previous].ref.current.getBoundingClientRect().x;
-    const previousItemSize =
-      referedOptions[scrollLine.previous].ref.current.offsetWidth;
-
     const containerCurrentScrollPosition = containerRef.current.scrollLeft;
+    const previousItemStartPosition = referedOptions
+      .filter((item, index) => index < scrollLine.previous)
+      .reduce((acc, next) => acc + next.ref.current.clientWidth, 0);
 
-    const position = referedOptions.filter(
-      (item, index) => index < scrollLine.previous
-    ).reduce((acc, next)=> acc+ next.ref.current.offsetWidth);
-
-    console.log(containerCurrentScrollPosition - previousItemStartPosition);
-
-    return containerCurrentScrollPosition + position;
+    return containerCurrentScrollPosition - previousItemStartPosition;
   };
 
   const updateRefsVisibility = () => {
@@ -79,7 +67,11 @@ const ScrolledContainer = ({ options, scrollLength }) => {
 
   const insertRefsIntoOptions = () => {
     setReferedOptions(
-      [...options].map((item) => ({ ...item, ref: React.createRef() }))
+      [...options].map((item, index) => ({
+        ...item,
+        id: index,
+        ref: React.createRef(),
+      }))
     );
   };
 
@@ -92,13 +84,14 @@ const ScrolledContainer = ({ options, scrollLength }) => {
   }, [referedOptions]);
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "40px", backgroundColor: "grey" }}>
+    <div style={styles.mainContainer}>
+      <div style={styles.buttonContainer}>
         {!refsVisibility[0] ? (
           <button
-            style={{ width: "100%", height: "100%" }}
+            style={styles.button}
             onClick={() => {
-              containerRef.current.scrollLeft -= scrollToPreviousItem();
+              containerRef.current.scrollLeft -=
+                scrollLength || scrollToPreviousItem();
               updateRefsVisibility();
             }}
           >
@@ -106,36 +99,17 @@ const ScrolledContainer = ({ options, scrollLength }) => {
           </button>
         ) : null}
       </div>
-      <div
-        ref={containerRef}
-        style={{
-          width: "600px",
-          height: "50px",
-          backgroundColor: "red",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
+      <div ref={containerRef} style={styles.componentsContainer}>
         {referedOptions?.map((item) => (
-          <div
-            key={item.id}
-            ref={item.ref}
-            style={{
-              width: "fit-content",
-              padding: "10px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <div key={item.id} ref={item.ref} style={styles.contenteContainer}>
             {item.component}
           </div>
         ))}
       </div>
-      <div style={{ width: "40px", backgroundColor: "grey" }}>
+      <div style={styles.buttonContainer}>
         {!refsVisibility.at(-1) ? (
           <button
-            style={{ width: "100%", height: "100%" }}
+            style={styles.button}
             onClick={() => {
               containerRef.current.scrollLeft +=
                 scrollLength || scrollToNextItem();
@@ -146,56 +120,37 @@ const ScrolledContainer = ({ options, scrollLength }) => {
           </button>
         ) : null}
       </div>
-      <button
-        onClick={() =>
-          console.log(
-            containerRef.current.scrollLeft,
-            referedOptions[
-              scrollLine.previous
-            ]?.ref?.current.getBoundingClientRect().x,
-            scrollLine.previous
-          )
-        }
-      >
-        xxx
-      </button>
-      <button onClick={() => console.log(refsVisibility)}>ver</button>
     </div>
   );
 };
 
 export const SandBox = () => {
   const options = [
-    { id: 1, component: <div>Text1</div> },
-    { id: 2, component: <div>Text2</div> },
-    { id: 3, component: <div>Text3</div> },
-    { id: 4, component: <div>Text4</div> },
-    { id: 5, component: <div>Text5</div> },
-    { id: 6, component: <div>Text6</div> },
-    { id: 7, component: <div>Text7</div> },
-    { id: 8, component: <div>Text8</div> },
-    { id: 9, component: <div>Text9</div> },
+    { component: <div style={styles.content1}>Text1</div> },
+    { component: <div style={styles.content2}>Text2</div> },
+    { component: <div style={styles.content1}>Text3</div> },
+    { component: <div style={styles.content2}>Text4</div> },
+    { component: <div style={styles.content1}>Text5</div> },
+    { component: <div style={styles.content2}>Text6</div> },
+    { component: <div style={styles.content1}>Text7</div> },
+    { component: <div style={styles.content2}>Text8</div> },
+    { component: <div style={styles.content1}>Text9</div> },
     {
-      id: 10,
-      component: <div>Text10</div>,
+      component: <div style={styles.content2}>Text10</div>,
     },
     {
-      id: 11,
-      component: <div>Text11</div>,
+      component: <div style={styles.content1}>Text11</div>,
     },
     {
-      id: 12,
-      component: <div>Text12</div>,
+      component: <div style={styles.content2}>Text12</div>,
     },
     {
-      id: 13,
-      component: <div>Text13</div>,
+      component: <div style={styles.content1}>Text13</div>,
     },
     {
-      id: 14,
-      component: <div>Text14</div>,
+      component: <div style={styles.content2}>Text14</div>,
     },
   ];
 
-  return <ScrolledContainer options={options} />;
+  return <ScrollableContainer options={options} />;
 };

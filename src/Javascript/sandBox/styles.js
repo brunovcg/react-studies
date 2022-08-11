@@ -1,0 +1,31 @@
+export const styles = {
+  mainContainer: { display: "flex", border: "1px solid black", width: "100%" },
+  buttonContainer: { minWidth: "50px", backgroundColor: "grey", flewGrow: 0 },
+  button: { width: "100%", height: "100%" },
+  componentsContainer: {
+    flewGrow: 1,
+    height: "50px",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
+  },
+  contenteContainer: { minWidth: "fit-content", height: "100%" },
+  content1: {
+    minWidth: "150px",
+    display: "flex",
+    height: "100%",
+    justifyContent: "center",
+    backgroundColor: "red",
+    alignItems: "center",
+    color: "white",
+  },
+  content2: {
+    minWidth: "200px",
+    display: "flex",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+    color: "white",
+  },
+};
