@@ -21,10 +21,6 @@ export const JSLinks = [
     text: "Redux",
   },
   {
-    link: "/tests",
-    text: "Tests",
-  },
-  {
     link: "/styled",
     text: "Styled-components",
   },
@@ -77,6 +73,10 @@ export const TSLinks = [
   {
     link: "/typescript/graphql",
     text: "GraphQL",
+  },
+  {
+    link: "/typescript/tests",
+    text: "Tests",
   },
   {
     link: "/typescript/other",
