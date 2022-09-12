@@ -7,3 +7,9 @@ import { Greet } from './greet'
     const textElement = screen.getByText(/hello/i)
     expect(textElement).toBeInTheDocument()
   })
+
+  test('Greed renders with a name',()=>{
+    render(<Greet name="bruno"/>)
+    const textElement = screen.getByText(/hello bruno/i)
+    expect(textElement).toBeInTheDocument()
+  })

@@ -1,5 +1,3 @@
-
-
-export function Greet  ()  {
-  return <div>Hello</div>
+export function Greet  ({name}: {name?:string})  {
+  return <div>Hello {name}</div>
 }
