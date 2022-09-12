@@ -1,9 +1,7 @@
-import { Greet } from "./components/greet/greet";
-
 function MyTestsApp() {
   return (
     <div>
-      <Greet />
+      <p>Open VSCode and check how does the test can be applied. </p>
     </div>
   );
 }
