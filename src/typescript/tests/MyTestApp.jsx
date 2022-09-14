@@ -1,7 +1,11 @@
+import { QueryExemples } from "./components/2-queries/Aplication";
 function MyTestsApp() {
   return (
     <div>
-      <p>Open VSCode and check how does the test can be applied. </p>
+      <p style={{ padding: "10px" }}>
+        Open VSCode and check how does the test can be applied.{" "}
+      </p>
+      <QueryExemples />
     </div>
   );
 }
