@@ -1,0 +1,90 @@
+.calendar-container {
+  border: 1px solid var(--border);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+}
+
+.calendar-container .calendar {
+  width: 100%;
+}
+
+.calendar-option {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.calendar-option label {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.calendar-option button {
+  border: none;
+  width: 40px;
+  height: 40px;
+  color: var(--light-font);
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: var(--tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.calendar-option .icon {
+  font-weight: bold;
+}
+
+.calendar-option .previous-button .icon {
+  margin-left: 10px;
+}
+
+.calendar-option .next-button .icon {
+  margin-left: 2px;
+}
+
+.calendar-header td {
+  height: 30px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.calendar td {
+  border-radius: 8px;
+  column-width: 6rem;
+}
+
+.calendar td .body-item {
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.calendar-body td {
+  height: 70px;
+  font-size: 25px;
+  font-weight: bold;
+  color: grey;
+  cursor: pointer;
+}
+
+.calendar-body .selected-day {
+  color: var(--selected);
+}
+
+.calendar-body .today .body-item {
+  background-color: var(--light-primary);
+}

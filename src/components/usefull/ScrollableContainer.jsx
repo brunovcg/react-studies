@@ -123,21 +123,5 @@ function ScrollableContainer({ children, scrollLength, classname }) {
   );
 }
 
-// const scrollToNextItem = () => {
-//   const containerStartPosition = containerRef.current.getBoundingClientRect().x;
-//   const containerSize = containerRef.current.offsetWidth;
-//   const nextItemStartPosition = referedOptions[scrollLinkedList.next]?.ref.current.getBoundingClientRect().x;
-//   const nextItemSize = referedOptions[scrollLinkedList.next]?.ref.current.offsetWidth;
-//   return nextItemStartPosition - containerStartPosition - containerSize + nextItemSize;
-// };
-
-// const scrollToPreviousItem = () => {
-//   const containerCurrentScrollPosition = containerRef.current.scrollLeft;
-//   const previousItemStartPosition = referedOptions
-//     .filter((item, index) => index < scrollLinkedList.previous)
-//     .reduce((acc, next) => acc + next.ref.current.clientWidth, 0);
-
-//   return containerCurrentScrollPosition - previousItemStartPosition;
-// };
 
 export default ScrollableContainer;
