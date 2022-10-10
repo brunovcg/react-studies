@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { CalendarProps, DataSourceType } from "./calendar.types";
 import moment from "moment";
 import "./styles.css";
-import Icon from "../Icon/Icon";
+// import Icon from "../Icon/Icon";
 
 function Calendar({ startDate }: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date>(
@@ -28,7 +28,7 @@ function Calendar({ startDate }: CalendarProps) {
             isSelected: moment(date)
               .startOf("day")
               .isSame(moment(selectedDate).startOf("day")),
-            isToday: moment().isSame(date, "day")
+            isToday: moment().isSame(date, "day"),
           };
         }),
     [selectedDate]
@@ -63,7 +63,7 @@ function Calendar({ startDate }: CalendarProps) {
           title="Previous week"
           onClick={() => handleAddDate(-7)}
         >
-          <Icon icon="arrow_back_ios" />
+          {/* <Icon icon="arrow_back_ios" /> */}
         </button>
         <label htmlFor="calendar-input">
           Selected Date
@@ -80,7 +80,7 @@ function Calendar({ startDate }: CalendarProps) {
           title="Next week"
           onClick={() => handleAddDate(+7)}
         >
-          <Icon icon="arrow_forward_ios" />
+          {/* <Icon icon="arrow_forward_ios" /> */}
         </button>
       </div>
       <table className="calendar">
