@@ -10,6 +10,6 @@ function MyTestsApp() {
       <MyAppProvidersExemple/>
     </div>
   );
-}
+}  
 
 export default MyTestsApp;

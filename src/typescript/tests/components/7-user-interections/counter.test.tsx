@@ -41,6 +41,8 @@ describe('Counter', () => {
     expect(countElement).toHaveTextContent('1')
   })
 
+  // all user interactions are ASYNC!
+
   test('renders a count of 2 after clicking the increment button twice', async () => {
     user.setup()
     render(<Counter />)
