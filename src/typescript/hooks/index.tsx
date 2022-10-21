@@ -1,8 +1,8 @@
-import UseStateHook from "./useState";
-import UseReducerhHook from "./useReducer";
-import { styles } from "../styles";
-import UseContextHook from "./useContext";
-import { UseRefHook } from "./useRef";
+import UseStateHook from './useState'
+import UseReducerhHook from './useReducer'
+import { styles } from '../styles'
+import UseContextHook from './useContext'
+import { UseRefHook } from './useRef'
 
 const HooksType = () => {
   return (
@@ -21,7 +21,7 @@ const HooksType = () => {
       <h3 style={styles.style4}>useRef</h3>
       <UseRefHook />
     </div>
-  );
-};
+  )
+}
 
-export default HooksType;
+export default HooksType

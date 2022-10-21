@@ -1,15 +1,12 @@
-import React from "react";
+import React from 'react'
 
 type CounterProps = {
-  message: string;
-};
+  message: string
+}
 
-type CounterState = { count: number };
+type CounterState = { count: number }
 
 class ClassState extends React.Component<CounterProps, CounterState> {
-
-
-
   /* 
   
   ++ SE NÃO TIVER PROPS ++
@@ -21,21 +18,21 @@ class ClassState extends React.Component<CounterProps, CounterState> {
     */
   state = {
     count: 0,
-  };
+  }
 
   handleClick = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
-  };
+    this.setState((prevState) => ({ count: prevState.count + 1 }))
+  }
 
   render() {
     return (
       <div>
         <button onClick={this.handleClick}>Somar</button>
-        <br/>
+        <br />
         {this.props.message} {this.state.count}
       </div>
-    );
+    )
   }
 }
 
-export default ClassState;
+export default ClassState

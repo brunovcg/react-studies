@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 interface ButtonStyledProps {
-  isDeleted: boolean;
+  isDeleted: boolean
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -25,4 +25,4 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
       justify-content: center;
       align-items: center;
     `};
-`;
+`

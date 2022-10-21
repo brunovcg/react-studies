@@ -1,27 +1,25 @@
-import { useState, useEffect , useDebugValue} from "react";
+import { useState, useEffect, useDebugValue } from 'react'
 
-export const useLocalStorage = (key : string, defaultValue: string) => {
+export const useLocalStorage = (key: string, defaultValue: string) => {
   const [value, setValue] = useState(() => {
-    let currentValue;
-
-    
+    let currentValue
 
     try {
       currentValue = JSON.parse(
         localStorage.getItem(key) || String(defaultValue)
-      );
+      )
     } catch (error) {
-      currentValue = defaultValue;
+      currentValue = defaultValue
     }
 
-    return currentValue;
-  });
+    return currentValue
+  })
 
   useDebugValue(value)
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [value, key]);
+    localStorage.setItem(key, JSON.stringify(value))
+  }, [value, key])
 
-  return [value, setValue];
+  return [value, setValue]
 }

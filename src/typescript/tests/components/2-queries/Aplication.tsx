@@ -1,6 +1,6 @@
 export const QueryExemples = () => {
   return (
-    <div style={{paddingLeft: '30px'}}>
+    <div style={{ paddingLeft: '30px' }}>
       <h1>Job application form</h1>
       <h2>Section 1</h2>
       <p>All fields are mandatory</p>

@@ -1,5 +1,5 @@
-import DomRef from "./DomRef";
-import MutableRef from "./MutableRef";
+import DomRef from './DomRef'
+import MutableRef from './MutableRef'
 
 export const UseRefHook = () => {
   return (
@@ -10,5 +10,5 @@ export const UseRefHook = () => {
       <h4>Mutable REF REF</h4>
       <MutableRef />
     </div>
-  );
-};
+  )
+}

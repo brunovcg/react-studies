@@ -1,7 +1,7 @@
-import { useTheming } from ".";
+import { useTheming } from '.'
 
 const Box = () => {
-  const { primary, secondary } = useTheming();
+  const { primary, secondary } = useTheming()
 
   return (
     <>
@@ -9,7 +9,7 @@ const Box = () => {
         style={{
           backgroundColor: primary.main,
           color: primary.text,
-          width: "fit-content",
+          width: 'fit-content',
         }}
       >
         Theme context Primary
@@ -18,13 +18,13 @@ const Box = () => {
         style={{
           backgroundColor: secondary.main,
           color: secondary.text,
-          width: "fit-content",
+          width: 'fit-content',
         }}
       >
         Theme context Secondary
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Box;
+export default Box

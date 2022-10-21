@@ -1,17 +1,17 @@
-import { IconProps } from "./types";
+import { IconProps } from './types'
 function Icon({ icon, onClick }: IconProps) {
   return (
     <span
-      style={{ cursor: onClick && "pointer" }}
+      style={{ cursor: onClick && 'pointer' }}
       className="icon material-symbols-outlined"
       onClick={onClick}
     >
       {icon}
     </span>
-  );
+  )
 }
 
-export default Icon;
+export default Icon
 
 // ! COLOCAR NO HTML:
 //   <link

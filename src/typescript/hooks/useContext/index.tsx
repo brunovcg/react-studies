@@ -1,7 +1,7 @@
-import { User } from "./FutureValue/User";
-import { UserContextProvider } from "./FutureValue/UserContext";
-import { ThemingContextProvider } from "./ThemingExemple";
-import Box from "./ThemingExemple/Box";
+import { User } from './FutureValue/User'
+import { UserContextProvider } from './FutureValue/UserContext'
+import { ThemingContextProvider } from './ThemingExemple'
+import Box from './ThemingExemple/Box'
 
 const UseContextHook = () => {
   return (
@@ -20,7 +20,7 @@ const UseContextHook = () => {
         </UserContextProvider>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default UseContextHook;
+export default UseContextHook

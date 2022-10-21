@@ -1,32 +1,23 @@
-import {useUser, AuthUser} from "./UserContext"
-
+import { useUser, AuthUser } from './UserContext'
 
 export const User = () => {
+  const { user, setUser } = useUser()
 
-    const {user, setUser} = useUser()
+  const handleLogin = () => {
+    setUser({ name: 'Bruno', email: 'brunovcg' })
+  }
 
-    const handleLogin = () => {
+  const handleLogout = () => {
+    setUser({} as AuthUser)
+  }
 
-        setUser({name: "Bruno", email: "brunovcg"})
+  return (
+    <div>
+      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogout}>Logout</button>
 
-    }
-
-
-    const handleLogout = () => {
-        setUser({} as AuthUser)
-    }
-
-    return(
-        <div>
-            <button onClick={handleLogin}>Login</button>
-            <button onClick={handleLogout}>Logout</button>
-
-            <div>Username is: {user.name}</div>
-            <div>email is {user.email} </div>
-        </div>
-    )
-
-
-
-
+      <div>Username is: {user.name}</div>
+      <div>email is {user.email} </div>
+    </div>
+  )
 }

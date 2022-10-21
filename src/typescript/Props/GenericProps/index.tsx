@@ -1,7 +1,7 @@
 type ListProps<T> = {
-  items: T[];
-  onClick: (value: T) => void;
-};
+  items: T[]
+  onClick: (value: T) => void
+}
 
 const List = <
   T extends {
@@ -21,7 +21,7 @@ const List = <
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default List;
+export default List

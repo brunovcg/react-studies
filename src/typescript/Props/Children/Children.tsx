@@ -1,12 +1,9 @@
 type ChildrenProps = {
-    children: string
+  children: string
 }
 
-
-const Children = ({children}: ChildrenProps) => {
-
-
-    return <div>{children}</div>  
+const Children = ({ children }: ChildrenProps) => {
+  return <div>{children}</div>
 }
 
 export default Children

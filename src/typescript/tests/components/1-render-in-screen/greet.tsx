@@ -1,5 +1,5 @@
-import { GreetProps } from "./greet.types";
+import { GreetProps } from './greet.types'
 
 export function Greet({ name }: GreetProps) {
-  return <div>Hello {name}</div>;
+  return <div>Hello {name}</div>
 }

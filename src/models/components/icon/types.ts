@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
 export type IconProps = {
-  icon: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-};
+  icon: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}

@@ -1,5 +1,5 @@
-import { styles } from "../styles";
-import ClassState from "./stateProps";
+import { styles } from '../styles'
+import ClassState from './stateProps'
 
 const ClassComponentType = () => {
   return (
@@ -7,7 +7,7 @@ const ClassComponentType = () => {
       <h2>State and Props</h2>
       <ClassState message="count values is:" />
     </div>
-  );
-};
+  )
+}
 
-export default ClassComponentType;
+export default ClassComponentType

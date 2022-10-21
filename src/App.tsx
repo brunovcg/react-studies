@@ -1,7 +1,7 @@
-import Routing from "./routes";
-import Header from "./components/header";
-import Main from "./styles";
-import { HeaderProvider } from "./providers";
+import Routing from './routes'
+import Header from './components/header'
+import Main from './styles'
+import { HeaderProvider } from './providers'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         </Main>
       </HeaderProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

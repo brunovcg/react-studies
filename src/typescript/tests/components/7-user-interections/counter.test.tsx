@@ -12,7 +12,6 @@ import user from '@testing-library/user-event'
 
 //? It is always better to use the convinience API, since is easier to read and write.
 
-
 describe('Counter', () => {
   test('renders correctly', () => {
     render(<Counter />)
@@ -59,7 +58,6 @@ describe('Counter', () => {
   //* Utility API => type(), clear(), selectOptions() [select or dropdown], deselectOptions(),  upload() [file upload]
   //* Convenience Api => tab()
   //* KeyBoard API
-
 
   test('renders a count of 10 after clicking the set button', async () => {
     user.setup()

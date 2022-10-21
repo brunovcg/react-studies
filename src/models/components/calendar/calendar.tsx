@@ -1,59 +1,59 @@
-import { useState, useMemo } from "react";
-import { CalendarProps, DataSourceType } from "./calendar.types";
-import moment from "moment";
-import "./styles.css";
+import { useState, useMemo } from 'react'
+import { CalendarProps, DataSourceType } from './calendar.types'
+import moment from 'moment'
+import './styles.css'
 // import Icon from "../Icon/Icon";
 
 function Calendar({ startDate }: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date>(
     startDate ?? new Date()
-  );
+  )
 
   const dataSource: DataSourceType[] = useMemo(
     () =>
       new Array(7)
-        .fill({ id: "", header: "", body: "" }, 0, 7)
+        .fill({ id: '', header: '', body: '' }, 0, 7)
         .map((_, index) => {
-          const dayOfTheWeek = moment(selectedDate).isoWeekday();
+          const dayOfTheWeek = moment(selectedDate).isoWeekday()
           const date = new Date(
             moment(selectedDate)
-              .add(index - (dayOfTheWeek === 7 ? 0 : dayOfTheWeek), "days")
+              .add(index - (dayOfTheWeek === 7 ? 0 : dayOfTheWeek), 'days')
               .format()
-          );
+          )
           return {
             id: index,
             date,
-            header: moment(date).format("ddd"),
-            body: moment(date).format("DD"),
+            header: moment(date).format('ddd'),
+            body: moment(date).format('DD'),
             isSelected: moment(date)
-              .startOf("day")
-              .isSame(moment(selectedDate).startOf("day")),
-            isToday: moment().isSame(date, "day"),
-          };
+              .startOf('day')
+              .isSame(moment(selectedDate).startOf('day')),
+            isToday: moment().isSame(date, 'day'),
+          }
         }),
     [selectedDate]
-  );
+  )
 
   const handleAddDate = (days: number) => {
     const updatedDate = new Date(
-      moment(selectedDate).add(days, "days").format()
-    );
-    setSelectedDate(updatedDate);
-  };
+      moment(selectedDate).add(days, 'days').format()
+    )
+    setSelectedDate(updatedDate)
+  }
 
   const handleChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedDate(new Date(moment(e.target.value).format()));
-  };
+    setSelectedDate(new Date(moment(e.target.value).format()))
+  }
 
   const handleClickDate = (
     e: React.MouseEvent<HTMLTableCellElement>,
     date: Date
   ) => {
-    setSelectedDate(new Date(moment(date).format()));
-  };
+    setSelectedDate(new Date(moment(date).format()))
+  }
 
   const formatInputDate = (date: Date): string =>
-    date.toISOString().substring(0, 10);
+    date.toISOString().substring(0, 10)
 
   return (
     <div className="calendar-container">
@@ -97,8 +97,8 @@ function Calendar({ startDate }: CalendarProps) {
           <tr>
             {dataSource.map((item, index) => (
               <td
-                className={`${item.isToday ? "today" : ""} ${
-                  item.isSelected ? "selected-day" : ""
+                className={`${item.isToday ? 'today' : ''} ${
+                  item.isSelected ? 'selected-day' : ''
                 }`}
                 key={item.id}
                 onClick={(e) => handleClickDate(e, item.date)}
@@ -110,7 +110,7 @@ function Calendar({ startDate }: CalendarProps) {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
 
-export default Calendar;
+export default Calendar

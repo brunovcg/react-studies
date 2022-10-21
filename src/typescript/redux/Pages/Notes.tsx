@@ -1,20 +1,20 @@
-import { styles } from "../../styles";
-import { NoteInput } from "../components/NoteInput";
+import { styles } from '../../styles'
+import { NoteInput } from '../components/NoteInput'
 
-import { useDispatch, useSelector } from "react-redux";
-import { NotesState } from "../Store/Reducer";
-import { addNote } from "../Store/Actions";
+import { useDispatch, useSelector } from 'react-redux'
+import { NotesState } from '../Store/Reducer'
+import { addNote } from '../Store/Actions'
 
 const ReduxType = () => {
-  const notes = useSelector<NotesState, NotesState["notes"]>(
+  const notes = useSelector<NotesState, NotesState['notes']>(
     (state) => state.notes
-  );
+  )
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const onAddNote = (note: string) => {
-    dispatch(addNote(note));
-  };
+    dispatch(addNote(note))
+  }
 
   return (
     <div style={styles.style1}>
@@ -29,7 +29,7 @@ const ReduxType = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default ReduxType;
+export default ReduxType

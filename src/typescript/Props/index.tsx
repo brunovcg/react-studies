@@ -1,37 +1,37 @@
-import ArrayOfObject from "./ArrayOfObject";
-import Basics from "./Basics";
-import Children from "./Children/Children";
-import ChildrenReactNode from "./Children/ChildrenReactNode";
-import ReactComponent from "./Children/ReactComponent";
-import SimpleObject from "./SimpleObject";
-import Union from "./Union";
-import Events from "./Events";
-import { styles } from "../styles";
-import Private from "./componentProp/Private";
-import Profile from "./componentProp/Profile";
-import List from "./GenericProps";
-import RandomNumber from "./RestrictionProp/RandomNumber";
+import ArrayOfObject from './ArrayOfObject'
+import Basics from './Basics'
+import Children from './Children/Children'
+import ChildrenReactNode from './Children/ChildrenReactNode'
+import ReactComponent from './Children/ReactComponent'
+import SimpleObject from './SimpleObject'
+import Union from './Union'
+import Events from './Events'
+import { styles } from '../styles'
+import Private from './componentProp/Private'
+import Profile from './componentProp/Profile'
+import List from './GenericProps'
+import RandomNumber from './RestrictionProp/RandomNumber'
 
 export const PropsType = () => {
   const personName = {
-    first: "Brunce",
-    last: "Wayne",
-  };
+    first: 'Brunce',
+    last: 'Wayne',
+  }
 
   const nameList = [
     {
-      first: "Brunce",
-      last: "Wayne",
+      first: 'Brunce',
+      last: 'Wayne',
     },
     {
-      first: "Clark",
-      last: "Kent",
+      first: 'Clark',
+      last: 'Kent',
     },
     {
-      first: "Princess",
-      last: "Diana",
+      first: 'Princess',
+      last: 'Diana',
     },
-  ];
+  ]
 
   return (
     <div style={styles.style1}>
@@ -65,7 +65,7 @@ export const PropsType = () => {
       <h3 style={styles.style4}>+ Generic Props</h3>
       <List
         onClick={(item) => console.log(item)}
-        items={["batman", "superman", "WonderWoman"]}
+        items={['batman', 'superman', 'WonderWoman']}
       />
 
       <List onClick={(item) => console.log(item)} items={[1, 2, 3, 4, 5]} />
@@ -73,16 +73,16 @@ export const PropsType = () => {
       <List
         onClick={(item) => console.log(item)}
         items={[
-          { id: 1, first: "bruno", last: "gouveia" },
-          { id: 2, first: "brenda", last: "lima" },
+          { id: 1, first: 'bruno', last: 'gouveia' },
+          { id: 2, first: 'brenda', last: 'lima' },
         ]}
       />
 
       <h3 style={styles.style4}>+ Generic Props</h3>
 
-      <RandomNumber value={100} isPositive/>
+      <RandomNumber value={100} isPositive />
     </div>
-  );
-};
+  )
+}
 
-export default PropsType;
+export default PropsType

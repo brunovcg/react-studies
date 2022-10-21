@@ -1,5 +1,5 @@
-import FutureValue from "./futureValue";
-import SimpleInference from "./simpleInference";
+import FutureValue from './futureValue'
+import SimpleInference from './simpleInference'
 
 const UseStateHook = () => {
   return (
@@ -15,9 +15,8 @@ const UseStateHook = () => {
 
       <h4>+ Future Value</h4>
       <FutureValue />
-      
     </div>
-  );
-};
+  )
+}
 
-export default UseStateHook;
+export default UseStateHook

@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 type AuthUser = {
-  name: string;
-  email: string;
-};
+  name: string
+  email: string
+}
 
 const FutureValue = () => {
   // const [user, setUser] = useState<null | AuthUser>(null)
   // ou usando type Assertion
-  const [user, setUser] = useState<AuthUser>({} as AuthUser);
+  const [user, setUser] = useState<AuthUser>({} as AuthUser)
 
   const handleLogin = () => {
     setUser({
-      name: "Bruno",
-      email: "brunovcg@gmail.com",
-    });
-  };
+      name: 'Bruno',
+      email: 'brunovcg@gmail.com',
+    })
+  }
   const handleLogout = () => {
     // setUser(null)
     // ou
-    setUser({} as AuthUser);
-  };
+    setUser({} as AuthUser)
+  }
 
   return (
     <div>
@@ -37,7 +37,7 @@ const FutureValue = () => {
       {/*  ou */}
       <div>Usermail is {user.email}</div>
     </div>
-  );
-};
+  )
+}
 
-export default FutureValue;
+export default FutureValue

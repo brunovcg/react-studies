@@ -1,28 +1,28 @@
 // restringindo props
 
 type RandomNumberType = {
-  value: number;
-};
+  value: number
+}
 
 type PositiveNumber = RandomNumberType & {
-  isPositive?: boolean;
-  isNegative?: never;
-  isZero?: never;
-};
+  isPositive?: boolean
+  isNegative?: never
+  isZero?: never
+}
 
 type NegativeNumber = RandomNumberType & {
-  isNegative?: boolean;
-  isZero?: never;
-  isPositive?: never;
-};
+  isNegative?: boolean
+  isZero?: never
+  isPositive?: never
+}
 
 type Zero = RandomNumberType & {
-  isZero?: boolean;
-  isPositive?: never;
-  isNegative?: never;
-};
+  isZero?: boolean
+  isPositive?: never
+  isNegative?: never
+}
 
-type RandomNumberProps = PositiveNumber | NegativeNumber | Zero;
+type RandomNumberProps = PositiveNumber | NegativeNumber | Zero
 
 const RandomNumber = ({
   value,
@@ -32,10 +32,10 @@ const RandomNumber = ({
 }: RandomNumberProps) => {
   return (
     <div>
-      {value} {isPositive && "positive"} {isNegative && "negative"}
-      {isZero && "zero"}
+      {value} {isPositive && 'positive'} {isNegative && 'negative'}
+      {isZero && 'zero'}
     </div>
-  );
-};
+  )
+}
 
-export default RandomNumber;
+export default RandomNumber
