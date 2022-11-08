@@ -1,43 +1,49 @@
-import React, { useEffect } from "react";
+import { useReducer, useEffect, useRef } from 'react'
+import axios from 'axios'
 
-function App() {
+const inicialValue = { name: 'Bruno', idade: 33 }
 
-  function getRange(num1, num2) {
-    let range = [];
-    if (!num1 || !num2) {
-      return false;
-    }
-    for (let i = num1; i < num2; i++) {
-      range.push(i);
-    }
-    return range.length;
+const reducer = (state, action) => {
+  const cases = {
+    mudaNome: (payload) => ({ ...state, name: payload }),
+    sumIdade: (payload) => ({ ...state, idade: state.idade + Number(payload) }),
   }
 
-  function closestNumbers(numbers) {
-    let sortedNumbers = [...numbers].sort((a, b) => a - b);
-    let minimumDelta = 0;
-    let setOfNumbers = [];
-
-    for (let i = 0; i < sortedNumbers.length -1; i++) {
-      let currentNumber = sortedNumbers[i];
-      let nextNumber = sortedNumbers[i + 1];
-      let range = getRange(currentNumber, nextNumber);
-      if (range === minimumDelta  || !setOfNumbers[0] ) {
-        setOfNumbers.push([currentNumber, nextNumber]);
-      } else if (range < minimumDelta) {
-        minimumDelta = range;
-      }
-    }
-
-    // console.log(setOfNumbers)
-    setOfNumbers.forEach((item) => console.log(item[0], item[1]));
-  }
-
-  useEffect(() => {
-    console.log(closestNumbers([ -1, -3]));
-  }, []);
-
-  return <div>xxx</div>;
+  return cases[action.type](action.payload) ?? state
 }
 
-export default App;
+function App() {
+  const [store, dispatch] = useReducer(reducer, inicialValue)
+  const nameRef = useRef(null)
+  const idadeRef = useRef(null)
+
+  useEffect(() => {
+    axios.get('https://pokeapi.co/api/v2/').then((res) => console.log(res))
+  }, [])
+
+  return (
+    <div>
+      <input ref={nameRef} type="text" />
+      <button
+        onClick={() =>
+          dispatch({ type: 'mudaNome', payload: nameRef.current.value })
+        }
+      >
+        name
+      </button>
+      <input ref={idadeRef} type="number" />
+      <button
+        onClick={() =>
+          dispatch({ type: 'sumIdade', payload: idadeRef.current.value })
+        }
+      >
+        idade
+      </button>
+      <div>
+        {store.name} - {store.idade}
+      </div>
+    </div>
+  )
+}
+
+export default App
