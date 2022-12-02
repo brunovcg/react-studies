@@ -1,48 +1,13 @@
-import { useReducer, useEffect, useRef } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 
-const inicialValue = { name: 'Bruno', idade: 33 }
+function App({ onChange }) {
+  const [value, setValue] = useState('R$ 0,00')
 
-const reducer = (state, action) => {
-  const cases = {
-    mudaNome: (payload) => ({ ...state, name: payload }),
-    sumIdade: (payload) => ({ ...state, idade: state.idade + Number(payload) }),
-  }
+  const a = {b: 1, c: 2}
 
-  return cases[action.type](action.payload) ?? state
-}
-
-function App() {
-  const [store, dispatch] = useReducer(reducer, inicialValue)
-  const nameRef = useRef(null)
-  const idadeRef = useRef(null)
-
-  useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/').then((res) => console.log(res))
-  }, [])
 
   return (
-    <div>
-      <input ref={nameRef} type="text" />
-      <button
-        onClick={() =>
-          dispatch({ type: 'mudaNome', payload: nameRef.current.value })
-        }
-      >
-        name
-      </button>
-      <input ref={idadeRef} type="number" />
-      <button
-        onClick={() =>
-          dispatch({ type: 'sumIdade', payload: idadeRef.current.value })
-        }
-      >
-        idade
-      </button>
-      <div>
-        {store.name} - {store.idade}
-      </div>
-    </div>
+    <input type="text"  value={value}  />
   )
 }
 

@@ -18,6 +18,7 @@ import ClassComponentType from "../typescript/class";
 import StyledComponentsType from "../typescript/styledComponents";
 import StylesInLineType from "../typescript/StylesInLine";
 import { OtherTypescript } from "../typescript/other";
+import ReactQueryComponent from "../Javascript/reactQuery";
 
 const Routing = () => {
   return (
@@ -29,6 +30,7 @@ const Routing = () => {
       <Route path="/styled" exact element={<StyledComponents />} />
       <Route path="/redux" exact element={<Redux />} />
       <Route path="/graphql" exact element={<GraphQLComponent />} />
+      <Route path="/reactquery" exact element={<ReactQueryComponent />} />
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route
         path="/typescript/graphql"

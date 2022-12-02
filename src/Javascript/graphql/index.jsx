@@ -1,16 +1,19 @@
-import { useState } from "react";
-import { QuerySuccess } from "./query-success";
-import { QueryError } from "./query-error";
-import { styles } from "./styles";
+import { useState } from 'react'
+import { QuerySuccess } from './query-success'
+import { QueryError } from './query-error'
+import { styles } from './styles'
 const GraphQLComponent = () => {
-  const [success, setSucces] = useState(false);
-  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
 
   return (
     <div style={styles.style1}>
-      <p>Clique em cada uma das opções abaixo para ver o funcionamento de uma requisição graphQL, com sucesso ou erro </p>
+      <p>
+        Clique em cada uma das opções abaixo para ver o funcionamento de uma
+        requisição graphQL, com sucesso ou erro{' '}
+      </p>
       <div style={styles.style2}>
-        <button onClick={() => setSucces(true)}>SUCCESS</button>
+        <button onClick={() => setSuccess(true)}>SUCCESS</button>
       </div>
       {success && <QuerySuccess />}
 
@@ -19,7 +22,7 @@ const GraphQLComponent = () => {
       </div>
       {error && <QueryError />}
     </div>
-  );
-};
+  )
+}
 
-export default GraphQLComponent;
+export default GraphQLComponent

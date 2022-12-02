@@ -33,6 +33,10 @@ export const JSLinks = [
     text: "GraphQL",
   },
   {
+    link: "/reactquery",
+    text: "React Query",
+  },
+  {
     link: "/Sandbox",
     text: "Sand Box",
   },
@@ -82,4 +86,5 @@ export const TSLinks = [
     link: "/typescript/other",
     text: "Other",
   },
+  
 ];
