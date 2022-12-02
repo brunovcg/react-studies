@@ -5,6 +5,7 @@ import { TSLinks, JSLinks } from "./objects";
 import { useEffect, useState } from "react";
 import reactLogo from "../../assets/react.ico";
 import { LanguageLogo } from "../languageLogo";
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 const rotate = keyframes`
 from {
@@ -19,7 +20,8 @@ const Styled = styled.div`
   background-color: ${(props) =>
     props.color === "JS" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
-  height: 10vh;
+  height: 14vh;
+  min-height: 90px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -53,15 +55,16 @@ const Styled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    cursor: pointer;
     align-items: center;
     width: 120px;
-    height: 50%;
+    height: 40px;
     border: ${(props) =>
-      props.color === "JS"
-        ? "1px solid rgb(216, 207, 119)"
-        : "1px solid #bed3ff"};
+    props.color === "JS"
+      ? "1px solid rgb(216, 207, 119)"
+      : "1px solid #bed3ff"};
     background-color: ${(props) =>
-      props.color === "JS" ? "rgb(170, 154, 10)" : "#3a76f8"};
+    props.color === "JS" ? "rgb(170, 154, 10)" : "#3a76f8"};
 
     a {
       color: white;
@@ -72,9 +75,14 @@ const Styled = styled.div`
       :hover {
         font-size: 20px;
         color: ${(props) =>
-          props.color === "JS" ? "rgb(255, 244, 146)" : "#bed3ff"};
+    props.color === "JS" ? "rgb(255, 244, 146)" : "#bed3ff"};
         word-wrap: break-word;
       }
+    }
+
+    .extendable{
+      color: #ffffff;
+      font-weight: bold;
     }
   }
 `;
@@ -116,6 +124,22 @@ const Header = () => {
 
   const isTypescript = location.pathname.includes("typescript");
 
+
+  const popBottom = (array) => {
+
+    const render = array?.map((item, index) => <div style={{ width: '100%', height: '20px' }} key={index}><Link to={item.link}>{item.text}</Link></div>)
+
+    return (<Popover
+      id="popover-basic"
+      placement="right"
+      title="Popover right">
+      <div style={{ width: '200px', height: 'fit-content', padding: "10px" }}>
+        Go to:
+        {render}
+      </div>
+    </Popover>)
+  }
+
   useEffect(() => {
     if (isTypescript) {
       setLib(TSLinks);
@@ -136,19 +160,26 @@ const Header = () => {
       <nav className="nav_options">
         {lib.map((item, index) => (
           <div key={index} className="header-tag">
-            <Link onClick={() => console.clear()} to={item.link}>
+            {!item.extends ? <Link onClick={() => console.clear()} to={item.link}>
               {item.text}
-            </Link>
+            </Link> : <OverlayTrigger placement="bottom" trigger="click" overlay={popBottom(item.extends)}>
+              <div className="extendable">{item.text} +</div>
+
+            </OverlayTrigger>}
           </div>
-        ))}
-      </nav>
+        ))
+        }
+      </nav >
+
+
+
       <Figure onClick={isTypescript ? goJavascript : goTypescript}>
         <div className="figure">
           <LanguageLogo applyHover >{!isTypescript ? "TS" : "JS"}</LanguageLogo>
           <p>go to</p>
         </div>
       </Figure>
-    </Styled>
+    </Styled >
   );
 };
 

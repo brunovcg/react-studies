@@ -4,6 +4,8 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { client } from './services/'
 import { ApolloProvider } from '@apollo/client'
+import "bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 

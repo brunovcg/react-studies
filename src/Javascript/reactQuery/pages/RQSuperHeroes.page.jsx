@@ -1,8 +1,8 @@
-function SuperHeoresPage() {
+function RQSuperHeoresPage() {
 
 
 
-    return <div>Super Hero</div>
+    return <div>RQ Super Hero</div>
 }
 
-export default SuperHeoresPage
+export default RQSuperHeoresPage

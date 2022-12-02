@@ -19,8 +19,8 @@ import StyledComponentsType from "../typescript/styledComponents";
 import StylesInLineType from "../typescript/StylesInLine";
 import { OtherTypescript } from "../typescript/other";
 import HomePage from "../Javascript/reactQuery/pages/Home.page";
-import SuperHeoresPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
-import RQSuperHeoresPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
+import SuperHeoresPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
+import RQSuperHeoresPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
 
 
 
