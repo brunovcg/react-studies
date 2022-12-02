@@ -1,8 +1,17 @@
-function ReactQueryComponent () {
 
 
 
-    return <div>xxxx</div>
+
+
+
+function ReactQueryComponent() {
+
+
+
+
+
+
+    return <div></div>
 }
 
 export default ReactQueryComponent

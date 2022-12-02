@@ -18,19 +18,27 @@ import ClassComponentType from "../typescript/class";
 import StyledComponentsType from "../typescript/styledComponents";
 import StylesInLineType from "../typescript/StylesInLine";
 import { OtherTypescript } from "../typescript/other";
-import ReactQueryComponent from "../Javascript/reactQuery";
+import HomePage from "../Javascript/reactQuery/pages/Home.page";
+import SuperHeoresPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
+import RQSuperHeoresPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
+
+
 
 const Routing = () => {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
-      <Route path="/hooks" exact element={<Hooks />} />
-      <Route path="/hoc" exact element={<HOC />} />
-      <Route path="/portals" exact element={<PortalModal />} />
-      <Route path="/styled" exact element={<StyledComponents />} />
-      <Route path="/redux" exact element={<Redux />} />
-      <Route path="/graphql" exact element={<GraphQLComponent />} />
-      <Route path="/reactquery" exact element={<ReactQueryComponent />} />
+      <Route path="hooks" exact element={<Hooks />} />
+      <Route path="hoc" exact element={<HOC />} />
+      <Route path="portals" exact element={<PortalModal />} />
+      <Route path="styled" exact element={<StyledComponents />} />
+      <Route path="redux" exact element={<Redux />} />
+      <Route path="graphql" exact element={<GraphQLComponent />} />
+      <Route path="reactquery">
+        <Route index element={<HomePage />} />
+        <Route path="superheroes" element={<SuperHeoresPage />} />
+        <Route path="rcsuperheroes" element={<RQSuperHeoresPage />} />
+      </Route >
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route
         path="/typescript/graphql"
@@ -59,7 +67,7 @@ const Routing = () => {
       <Route path="/typescript/tests/*" exact element={<MyTestsApp />} />
       <Route path="/sandbox" exact element={<SandBox />} />
       <Route path="/classcomponents" exact element={<ClassComponents />} />
-    </Routes>
+    </Routes >
   );
 };
 

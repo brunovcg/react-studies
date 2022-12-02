@@ -19,11 +19,13 @@
     "axios": "^0.25.0",
     "dayjs": "^1.11.6",
     "graphql": "^16.5.0",
+    "json-server": "^0.17.1",
     "moment": "^2.29.4",
     "msw": "^0.47.4",
     "react": "^18.0.0",
     "react-bootstrap": "^2.2.1",
     "react-dom": "18",
+    "react-query": "^3.39.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
@@ -46,7 +48,8 @@
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
     "coverage": "react-scripts test --coverage --watchAll --collectCoverageFrom='!src/**/*.{types,stories,constants,test,spec}.{js,jsx,ts,tsx}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "serve-json": "json-server --watch src/Javascript/reactQuery/db.json --port 4000"
   },
   "eslintConfig": {
     "extends": [
