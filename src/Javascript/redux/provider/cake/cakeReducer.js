@@ -12,7 +12,6 @@ const cakeReducer = (state = inicialState, action) => {
 
     default:
       return state;
-  }
-};
+  }};
 
 export default cakeReducer;

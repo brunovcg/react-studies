@@ -19,8 +19,10 @@ import StyledComponentsType from "../typescript/styledComponents";
 import StylesInLineType from "../typescript/StylesInLine";
 import { OtherTypescript } from "../typescript/other";
 import HomePage from "../Javascript/reactQuery/pages/Home.page";
-import SuperHeoresPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
-import RQSuperHeoresPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
+import SuperHeroesPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
+import RQSuperHeroesPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
+import RQOneSuperHero from "../Javascript/reactQuery/pages/RQOneSuperHero";
+import ParallelQueries from '../Javascript/reactQuery/pages/ParallelQueries'
 
 
 
@@ -36,8 +38,10 @@ const Routing = () => {
       <Route path="graphql" exact element={<GraphQLComponent />} />
       <Route path="reactquery">
         <Route index element={<HomePage />} />
-        <Route path="superheroes" element={<SuperHeoresPage />} />
-        <Route path="rcsuperheroes" element={<RQSuperHeoresPage />} />
+        <Route path="superheroes" element={<SuperHeroesPage />} />
+        <Route path="rcsuperheroes" element={<RQSuperHeroesPage />} />
+        <Route path="parallelqueries" element={<ParallelQueries />} />
+        <Route path="rcsuperheroes/:heroId" element={<RQOneSuperHero />} />
       </Route >
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route

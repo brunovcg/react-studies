@@ -39,6 +39,7 @@ export const JSLinks = [
       { link: '/reactquery/', text: 'Home' },
       { link: '/reactquery/superheroes', text: 'Super Heroes' },
       { link: '/reactquery/rcsuperheroes', text: 'RC Super Heroes' },
+      { link: '/reactquery/parallelqueries', text: 'Parallel Queries' },
     ],
   },
   {

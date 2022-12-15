@@ -9,6 +9,8 @@ const ChocolateContainer = () => {
 
   const dispatch = useDispatch();
 
+  console.log(numOfChocolate)
+
   return (
     <div>
       <h1>4 - Passando um payload</h1>

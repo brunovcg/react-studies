@@ -3,7 +3,7 @@ import {
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
 } from "./asyncTypes";
-
+ 
 const initialState = {
   loading: false,
   users: [],

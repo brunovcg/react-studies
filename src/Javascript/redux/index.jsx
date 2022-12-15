@@ -1,9 +1,11 @@
+import { Provider } from "react-redux";
 import ConnectCakeContainer from "./components/cakeContainer";
+
 import IceCreamContainer from "./components/iceCreamContainer";
 import HookCakeContainer from "./components/hooksCakeContainer";
 import ChocolateContainer from "./components/chocolateContainer";
 import AsyncContainer from "./components/asyncContainer";
-import { Provider } from "react-redux";
+
 import store from "./provider/store";
 import styles from "./styles";
 import ReduxToolkit from "./redux-toolkit";
