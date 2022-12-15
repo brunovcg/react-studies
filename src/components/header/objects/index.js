@@ -37,9 +37,18 @@ export const JSLinks = [
     text: 'React Query',
     extends: [
       { link: '/reactquery/', text: 'Home' },
-      { link: '/reactquery/superheroes', text: 'Super Heroes' },
-      { link: '/reactquery/rcsuperheroes', text: 'RC Super Heroes' },
+      { link: '/reactquery/regularrequest', text: 'Regular Request (not RC)' },
+      { link: '/reactquery/usequery', text: 'Query / QueryById' },
       { link: '/reactquery/parallelqueries', text: 'Parallel Queries' },
+      {
+        link: '/reactquery/dynamicparallelqueries',
+        text: 'Dynamic Parallel Queries',
+      },
+
+      {
+        link: '/reactquery/dependentparallelqueries',
+        text: 'Dependent Parallel Queries',
+      },
     ],
   },
   {

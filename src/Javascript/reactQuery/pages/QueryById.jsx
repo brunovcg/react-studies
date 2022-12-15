@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
-import useOneSuperHeroData from './../hooks/useOneSuperHeroData'
+import useOneSuperHeroData from '../hooks/useOneSuperHeroData'
 
-function RQOneSuperHero() {
+function QueryById() {
 
     const { heroId } = useParams()
 
@@ -11,4 +11,4 @@ function RQOneSuperHero() {
     return <div> This is {data?.data.name} home page, she is {data?.data.alterEgo}</div>
 }
 
-export default RQOneSuperHero
+export default QueryById

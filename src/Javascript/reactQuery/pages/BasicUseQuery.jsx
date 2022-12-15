@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 //! change url to chyeck error state
 //! goto app.tsx to check React-Query configs
 
-function RQSuperHeoresPage() {
+function BasicUseQuery() {
 
     const navigate = useNavigate()
 
@@ -40,6 +40,6 @@ function RQSuperHeoresPage() {
     </>
 }
 
-export default RQSuperHeoresPage
+export default BasicUseQuery
 
 

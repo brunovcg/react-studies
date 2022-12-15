@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // ! To be easy for compare, here is a regular data fetching
-function SuperHeoresPage() {
+function RegularRequest() {
     const [isLoading, setIsloading] = useState(true)
     const [data, setData] = useState([])
     const [error, setError] = useState('')
@@ -34,4 +34,4 @@ function SuperHeoresPage() {
     </>
 }
 
-export default SuperHeoresPage
+export default RegularRequest

@@ -162,7 +162,7 @@ const Header = () => {
           <div key={index} className="header-tag">
             {!item.extends ? <Link onClick={() => console.clear()} to={item.link}>
               {item.text}
-            </Link> : <OverlayTrigger placement="bottom" trigger="click" overlay={popBottom(item.extends)}>
+            </Link> : <OverlayTrigger placement="bottom" trigger="click" rootClose overlay={popBottom(item.extends)}>
               <div className="extendable">{item.text} +</div>
 
             </OverlayTrigger>}

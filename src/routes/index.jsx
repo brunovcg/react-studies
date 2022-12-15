@@ -19,10 +19,12 @@ import StyledComponentsType from "../typescript/styledComponents";
 import StylesInLineType from "../typescript/StylesInLine";
 import { OtherTypescript } from "../typescript/other";
 import HomePage from "../Javascript/reactQuery/pages/Home.page";
-import SuperHeroesPage from "../Javascript/reactQuery/pages/SuperHeroes.page";
-import RQSuperHeroesPage from "../Javascript/reactQuery/pages/RQSuperHeroes.page";
-import RQOneSuperHero from "../Javascript/reactQuery/pages/RQOneSuperHero";
+import RegularRequest from "../Javascript/reactQuery/pages/RegularRequest";
+import BasicUseQuery from "../Javascript/reactQuery/pages/BasicUseQuery";
+import QueryById from "../Javascript/reactQuery/pages/QueryById";
 import ParallelQueries from '../Javascript/reactQuery/pages/ParallelQueries'
+import DynamicParallelQueries from '../Javascript/reactQuery/pages/DynamicParallelQueries'
+import DependentParallelQueries from '../Javascript/reactQuery/pages/DependentParallelQueries'
 
 
 
@@ -38,10 +40,12 @@ const Routing = () => {
       <Route path="graphql" exact element={<GraphQLComponent />} />
       <Route path="reactquery">
         <Route index element={<HomePage />} />
-        <Route path="superheroes" element={<SuperHeroesPage />} />
-        <Route path="rcsuperheroes" element={<RQSuperHeroesPage />} />
+        <Route path="regularrequest" element={<RegularRequest />} />
+        <Route path="usequery" element={<BasicUseQuery />} />
         <Route path="parallelqueries" element={<ParallelQueries />} />
-        <Route path="rcsuperheroes/:heroId" element={<RQOneSuperHero />} />
+        <Route path="usequery/:heroId" element={<QueryById />} />
+        <Route path="dynamicparallelqueries" element={<DynamicParallelQueries heroIds={[1,3]}/>} />
+        <Route path="dependentparallelqueries" element={<DependentParallelQueries email="brunovcg@gmail.com"/>} />
       </Route >
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route

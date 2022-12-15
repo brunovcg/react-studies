@@ -8,5 +8,11 @@
     { "id": 1, "name": "Chandler" },
     { "id": 2, "name": "Rachael" },
     { "id": 3, "name": "Ross" }
+  ],
+  "users": [
+    { "id": "brunovcg@gmail.com", "channelId": "americanDataSolution" }
+  ],
+  "channels": [
+    { "id": "americanDataSolution", "courses": ["REACT", "JAVA", "PYTHON"] }
   ]
 }
