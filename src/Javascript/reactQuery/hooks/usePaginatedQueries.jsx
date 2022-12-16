@@ -6,14 +6,14 @@ function usePaginatedQueries() {
 
     const [page, setPage] = useState(1)
 
-    const { getColors } = ColorsServices
+    const { getColorsPaginated } = ColorsServices
 
     const nextPage = () => setPage(state => state + 1)
     const previousPage = () => setPage(state => state - 1)
 
     // ! keepPreviousData will keep the previous data until the new fetch is done, avoiding loading state.
 
-    return { query: useQuery(['colors', page], () => getColors(page), { keepPreviousData: true }), nextPage, previousPage }
+    return { query: useQuery(['colors', page], () => getColorsPaginated(page), { keepPreviousData: true }), nextPage, previousPage }
 }
 
 

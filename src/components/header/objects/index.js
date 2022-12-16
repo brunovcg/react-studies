@@ -53,6 +53,10 @@ export const JSLinks = [
         link: '/reactquery/paginationquery',
         text: 'Pagination Queries',
       },
+      {
+        link: '/reactquery/infinitequeries',
+        text: 'Infinite Queries',
+      },
     ],
   },
   {
