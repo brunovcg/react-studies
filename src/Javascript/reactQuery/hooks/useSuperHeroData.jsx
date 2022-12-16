@@ -19,6 +19,8 @@ function useSuperHeroData(onSuccess, onError) {
     //* Refetch on window focus: { refetchOnWindowFocus: true } - it can be true, false or 'always' (it will update if query is stale or not)
     //* fetching on event : { enable:false } - set enable as false, add a refetch function into destructuring and call it on event trigger 
     //* select: {select : data => do something ...} - works like a selector for redux
+    //* keepPreviousData: {keepPreviousData: true} - will keep the previous data until the new fetch is done, avoiding loading state. false is default
+    //* initialData: {initialData: something} - will set as the initial data
 
     return useQuery('super-hero', fetchSuperHeroes, { enabled: false, onSuccess, onError })
 

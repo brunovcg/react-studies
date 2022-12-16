@@ -49,6 +49,10 @@ export const JSLinks = [
         link: '/reactquery/dependentparallelqueries',
         text: 'Dependent Parallel Queries',
       },
+      {
+        link: '/reactquery/paginationquery',
+        text: 'Pagination Queries',
+      },
     ],
   },
   {
