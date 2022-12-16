@@ -1,28 +1,103 @@
 {
   "superheroes": [
-    { "id": 1, "name": "Batman", "alterEgo": "Bruce Wayne" },
-    { "id": 2, "name": "Superman", "alterEgo": "Clark Kent" },
-    { "id": 3, "name": "Wonder Woman", "alterEgo": "Princess Diana" }
+    {
+      "id": 1,
+      "name": "Batman",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "Wonder Woman",
+      "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "fff",
+      "alterEgo": "fff",
+      "id": 4
+    },
+    {
+      "name": "ddf",
+      "alterEgo": "fgfg",
+      "id": 5
+    },
+    {
+      "name": "ssdfsdf",
+      "alterEgo": "sdfsdf",
+      "id": 6
+    },
+    {
+      "name": "bruno",
+      "alterEgo": "34234234",
+      "id": 7
+    }
   ],
   "friends": [
-    { "id": 1, "name": "Chandler" },
-    { "id": 2, "name": "Rachael" },
-    { "id": 3, "name": "Ross" }
+    {
+      "id": 1,
+      "name": "Chandler"
+    },
+    {
+      "id": 2,
+      "name": "Rachael"
+    },
+    {
+      "id": 3,
+      "name": "Ross"
+    }
   ],
   "users": [
-    { "id": "brunovcg@gmail.com", "channelId": "americanDataSolution" }
+    {
+      "id": "brunovcg@gmail.com",
+      "channelId": "americanDataSolution"
+    }
   ],
   "channels": [
-    { "id": "americanDataSolution", "courses": ["REACT", "JAVA", "PYTHON"] }
+    {
+      "id": "americanDataSolution",
+      "courses": [
+        "REACT",
+        "JAVA",
+        "PYTHON"
+      ]
+    }
   ],
   "colors": [
-    { "id": 1, "label": "red" },
-    { "id": 2, "label": "blue" },
-    { "id": 3, "label": "green" },
-    { "id": 4, "label": "yellow" },
-    { "id": 5, "label": "black" },
-    { "id": 6, "label": "white" },
-    { "id": 7, "label": "orange" },
-    { "id": 8, "label": "purple" }
+    {
+      "id": 1,
+      "label": "red"
+    },
+    {
+      "id": 2,
+      "label": "blue"
+    },
+    {
+      "id": 3,
+      "label": "green"
+    },
+    {
+      "id": 4,
+      "label": "yellow"
+    },
+    {
+      "id": 5,
+      "label": "black"
+    },
+    {
+      "id": 6,
+      "label": "white"
+    },
+    {
+      "id": 7,
+      "label": "orange"
+    },
+    {
+      "id": 8,
+      "label": "purple"
+    }
   ]
 }

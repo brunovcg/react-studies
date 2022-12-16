@@ -22,7 +22,10 @@ function useSuperHeroData(onSuccess, onError) {
     //* keepPreviousData: {keepPreviousData: true} - will keep the previous data until the new fetch is done, avoiding loading state. false is default
     //* initialData: {initialData: something} - will set as the initial data
 
-    return useQuery('super-hero', fetchSuperHeroes, { enabled: false, onSuccess, onError })
+    return useQuery('super-heroes', fetchSuperHeroes, { 
+        //! if we use enabled =false, query invalidation wont work. unless you use a success callback to refetch
+        enabled: false, 
+        onSuccess, onError })
 
 
 }

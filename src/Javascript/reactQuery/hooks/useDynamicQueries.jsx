@@ -5,7 +5,7 @@ function useDynamicQueries(heroIds) {
 
 
     const queryResults = useQueries(
-        heroIds.map(id => ({ queryKey: ['super-hero', id], queryFn: fetchSuperHeroeById }))
+        heroIds.map(id => ({ queryKey: ['super-heroes', id], queryFn: fetchSuperHeroeById }))
     )
 
     return {queryResults}
