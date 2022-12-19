@@ -20,8 +20,7 @@ const Styled = styled.div`
   background-color: ${(props) =>
     props.color === "JS" ? "rgb(139, 126, 7)" : "#003dc2"};
   width: 100%;
-  height: 14vh;
-  min-height: 90px;
+  min-height: 14vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -57,8 +56,8 @@ const Styled = styled.div`
     justify-content: center;
     cursor: pointer;
     align-items: center;
-    width: 120px;
-    height: 40px;
+    width: 130px;
+    height: 60px;
     border: ${(props) =>
     props.color === "JS"
       ? "1px solid rgb(216, 207, 119)"
