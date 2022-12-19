@@ -1,7 +1,8 @@
 import Input from './Input'
 
 export default {
-  title: 'Input',
+  // Using Form/ creates a group of components, we can use without it
+  title: 'Form/Input',
   component: Input,
 }
 
