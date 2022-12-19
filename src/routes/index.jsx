@@ -27,6 +27,7 @@ import DynamicParallelQueries from '../Javascript/reactQuery/pages/DynamicParall
 import DependentParallelQueries from '../Javascript/reactQuery/pages/DependentParallelQueries'
 import PaginationQuery from "../Javascript/reactQuery/pages/PaginationQuery"
 import InfiniteQueries from "../Javascript/reactQuery/pages/InfiniteQueries"
+import Storybook from "../Javascript/storybook/Storybook";
 
 const Routing = () => {
   return (
@@ -49,6 +50,7 @@ const Routing = () => {
         <Route path="paginationquery" element={<PaginationQuery />} />
         <Route path="infinitequeries" element={<InfiniteQueries />} />
       </Route >
+      <Route path="storybook" exact element={<Storybook />} />
       <Route path="/typescript" exact element={<TypeScript />} />
       <Route
         path="/typescript/graphql"

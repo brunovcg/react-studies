@@ -60,6 +60,10 @@ export const JSLinks = [
     ],
   },
   {
+    link: '/storybook',
+    text: 'Storybook',
+  },
+  {
     link: '/Sandbox',
     text: 'Sand Box',
   },
