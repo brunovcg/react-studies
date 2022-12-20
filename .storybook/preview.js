@@ -1,11 +1,21 @@
 //! used on old version
-// import {addDecorator} from '@storybook/react'
+import { addDecorator, addParameters } from '@storybook/react'
+import { withConsole } from '@storybook/addon-console'
+import { withKnobs } from '@storybook/addon-knobs'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { withA11y } from '@storybook/addon-a11y'
+
 // import Center from './../src/Javascript/storybook/decorators/Center'
-import React from 'react'
 // import { ThemeProvider, theme, CSSReset, Box } from '@chakra-ui/react'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  // a11y: {
+  //   element: '../src/Javascript/storybook',
+  //   config: {},
+  //   options: {},
+  //   disabled: true,
+  // },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -23,7 +33,17 @@ export const parameters = {
 
 // ! THIS IS A GLOBAL DECORATOR, used on old versions
 // addDecorator(story=> <Center>{story()}</Center>)
+addDecorator((storyFn, context) => withConsole()(storyFn)(context))
+addDecorator(withKnobs)
 
+//! DEPRECATED
+addDecorator(withA11y)
+
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
+})
 
 //! New way to do theming
 // export const decorators = [
