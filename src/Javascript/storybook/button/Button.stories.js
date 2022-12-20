@@ -1,10 +1,13 @@
 import Button from './Button.jsx'
+import Center from '../decorators/Center.jsx'
 
 export default {
   title: 'Form/Button',
   //! Using Form/ creates a group of components, we can use without it
   //! Using / and / creates a folder inside the group
   component: Button,
+  // ! Decorator for all stories of Button, for global decorator, check on .storybook on root folder
+  decorators: [(story) => <Center>{story()}</Center>],
 
   //! here we can pass Args and make it used for all stories
   // args: {
@@ -43,6 +46,13 @@ export const Secondary = () => (
     title="secondary button"
   />
 )
+
+//! Centering without a decorator
+// export const Centered = () => (
+//   <Center>
+//     <Button variant="secondary" title="secondary button" />
+//   </Center>
+// )
 
 //! This way we can rename
 Primary.storyName = 'Primary Button'
