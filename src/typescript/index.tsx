@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Outlet } from 'react-router-dom'
 const reactLogo = require('../assets/react.ico')
 // import reactLogo from "../assets/react.ico"
 
@@ -8,9 +9,9 @@ const Styled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 20px;
   background-color: #d8edfd;
-  height: 90vh;
+  height: 30vh;
 
   h2 {
     width: 80%;
@@ -25,6 +26,7 @@ const Styled = styled.div`
 
 const TypeScript = () => {
   return (
+    <>
     <Styled>
       <img style={{ width: '100px' }} src={reactLogo} alt="logo" />
 
@@ -33,6 +35,8 @@ const TypeScript = () => {
         Clique nos menus do NAV escolha o que estudar e acompanhe pelo código
       </div>
     </Styled>
+    <Outlet/>
+    </>
   )
 }
 

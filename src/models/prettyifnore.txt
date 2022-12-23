@@ -1,0 +1,12 @@
+#
+# For REACT
+#
+#
+# Ignore artifacts:
+build
+
+# Ignore all folder:
+dist/
+node_modules/
+
+

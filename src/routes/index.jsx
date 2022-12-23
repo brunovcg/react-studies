@@ -50,35 +50,37 @@ const Routing = () => {
         <Route path="paginationquery" element={<PaginationQuery />} />
         <Route path="infinitequeries" element={<InfiniteQueries />} />
       </Route >
-      <Route path="storybook" exact element={<Storybook />} />
-      <Route path="/typescript" exact element={<TypeScript />} />
-      <Route
-        path="/typescript/graphql"
-        exact
-        element={<GraphQLComponentType />}
-      />
-      <Route path="/typescript/props" exact element={<PropsType />} />
-      <Route path="/typescript/hooks" exact element={<HooksType />} />
-      <Route path="/typescript/redux" exact element={<ReduxType />} />
-      <Route
-        path="/typescript/stylesinline"
-        exact
-        element={<StylesInLineType />}
-      />
-      <Route
-        path="/typescript/styledcomponents"
-        exact
-        element={<StyledComponentsType />}
-      />
-      <Route
-        path="/typescript/classcomponent"
-        exact
-        element={<ClassComponentType />}
-      />
-      <Route path="/typescript/other" exact element={<OtherTypescript />} />
-      <Route path="/typescript/tests/*" exact element={<MyTestsApp />} />
+      <Route path="storybook" element={<Storybook />} />
+      {/* //! -------------- using OUTLET -----------  */}
+      {/* //? check TypeScript.tsx */}
+      <Route path="typescript" element={<TypeScript />} >
+        <Route
+          path="graphql"
+          element={<GraphQLComponentType />}
+        />
+        <Route path="props" element={<PropsType />} />
+        <Route path="hooks" element={<HooksType />} />
+        <Route path="redux" element={<ReduxType />} />
+        <Route
+          path="stylesinline"
+          element={<StylesInLineType />}
+        />
+        <Route
+          path="styledcomponents"
+          element={<StyledComponentsType />}
+        />
+        <Route
+          path="classcomponent"
+          element={<ClassComponentType />}
+        />
+        <Route path="other" element={<OtherTypescript />} />
+        <Route path="tests/*" element={<MyTestsApp />} />
+      </Route>
+       {/* //! -------------- using OUTLET -----------  */}
+
       <Route path="/sandbox" exact element={<SandBox />} />
       <Route path="/classcomponents" exact element={<ClassComponents />} />
+      <Route path="*" element={<div>NOT FOUND</div>} />
     </Routes >
   );
 };

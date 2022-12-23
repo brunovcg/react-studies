@@ -1,0 +1,90 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "require-jsdoc": "off",
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1,
+          "offsetTernaryExpressions": true
+        }
+      ],
+      "curly": [ "error", "all" ],
+      "default-case": "off",
+      "consistent-return": "off",
+      "multiline-ternary": [ "error", "always-multiline" ],
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-filename-extension": [
+        1,
+        { "extensions": [ ".js", ".jsx" ] }
+      ],
+      "linebreak-style": [ "error", "windows" ],
+      "quotes": [ "error", "single" ],
+      "semi": [ "error", "always" ],
+      "import/prefer-default-export": "off",
+      "no-plusplus": [
+        "error",
+        { "allowForLoopAfterthoughts": true }
+      ],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "never"
+        }
+      ],
+      "no-empty": "error",
+      "space-before-function-paren": "off",
+      "no-param-reassign": [
+        "error",
+        { "props": false }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 140,
+          "ignoreStrings": true
+        }
+      ],
+      "react/prop-types": "off",
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": false,
+          "classes": false,
+          "variables": true
+        }
+      ],
+      "jsx-a11y/no-static-element-interactions": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "react/jsx-props-no-spreading": "off",
+      "prettier/prettier": "error",
+      "arrow-body-style": "off",
+      "prefer-arrow-callback": "off"
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "prettier"
+    ]
+  }
+  
