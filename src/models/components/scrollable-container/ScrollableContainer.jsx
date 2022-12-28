@@ -20,7 +20,10 @@ function ScrollableContainer({ children, scrollLength, classname }) {
       (containerRef?.current?.offsetWidth || 0) + containerStart;
     const itemStart = itemRef?.current?.getBoundingClientRect().x;
     const itemEnd = (itemRef?.current?.offsetWidth || 0) + itemStart;
-    return containerStart * 0.98 <= itemStart && containerEnd * 1.02 >= itemEnd;
+    return (
+      Math.ceil(containerStart.toFixed(2)) <= Math.floor(itemStart.toFixed(2)) &&
+      Math.ceil(containerEnd.toFixed(2)) >= Math.floor(itemEnd.toFixed(2))
+    )
   };
 
   const updateRefsVisibility = useCallback(() => {
