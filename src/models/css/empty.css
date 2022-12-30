@@ -1,0 +1,3 @@
+:empty:not(img, input, picture, textarea, svg, button) {
+  display: none;
+}

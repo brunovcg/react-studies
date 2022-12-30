@@ -60,6 +60,10 @@ export const JSLinks = [
     ],
   },
   {
+    link: '/table',
+    text: 'React Table',
+  },
+  {
     link: '/storybook',
     text: 'Storybook',
   },

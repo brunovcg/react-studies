@@ -5876,6 +5876,13 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
+"@types/react-table@^7.7.13":
+  version "7.7.13"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.7.13.tgz#c049e4161d55c140d3abcd9bf2a1783d69004e22"
+  integrity sha512-mQk4FgGeniU0mFqjkO2TNCyoHPkUo3nPlNlnLBbPQGbycqRdxhWwGMKwLQN5lWoIPYvFOMZxvP6IBJbkJhd63g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.4.4":
   version "4.4.4"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.4.tgz"
@@ -15992,6 +15999,11 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-table@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.8.0.tgz#07858c01c1718c09f7f1aed7034fcfd7bda907d2"
+  integrity sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
 
 react-tabtab@^2.0.0:
   version "2.0.0"

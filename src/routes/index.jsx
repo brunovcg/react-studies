@@ -28,6 +28,7 @@ import DependentParallelQueries from '../Javascript/reactQuery/pages/DependentPa
 import PaginationQuery from "../Javascript/reactQuery/pages/PaginationQuery"
 import InfiniteQueries from "../Javascript/reactQuery/pages/InfiniteQueries"
 import Storybook from "../Javascript/storybook/Storybook";
+import TableExemple from "../Javascript/reactTable/TableExemple"
 
 const Routing = () => {
   return (
@@ -51,6 +52,7 @@ const Routing = () => {
         <Route path="infinitequeries" element={<InfiniteQueries />} />
       </Route >
       <Route path="storybook" element={<Storybook />} />
+      <Route path="table" element={<TableExemple />} />
       {/* //! -------------- using OUTLET -----------  */}
       {/* //? check TypeScript.tsx */}
       <Route path="typescript" element={<TypeScript />} >
@@ -76,7 +78,7 @@ const Routing = () => {
         <Route path="other" element={<OtherTypescript />} />
         <Route path="tests/*" element={<MyTestsApp />} />
       </Route>
-       {/* //! -------------- using OUTLET -----------  */}
+      {/* //! -------------- using OUTLET -----------  */}
 
       <Route path="/sandbox" exact element={<SandBox />} />
       <Route path="/classcomponents" exact element={<ClassComponents />} />
