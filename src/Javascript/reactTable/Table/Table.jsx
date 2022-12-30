@@ -1,8 +1,8 @@
-import { useTable, useSortBy, useGlobalFilter, useFilters, usePagination, useRowSelect, useColumnOrder } from "react-table"
+import { useTable, useSortBy, useGlobalFilter, useFilters, usePagination, useRowSelect, useColumnOrder, useFlexLayout } from "react-table"
+import { useSticky } from 'react-table-sticky'
 import { useMemo, forwardRef, useRef, useEffect } from "react"
 import StyledTable from "../Table/Table.styled"
 import Icon from "../../../models/components/icon"
-// import { ColumnFilter } from "../TableExemple"
 
 const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
 
@@ -16,12 +16,11 @@ const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
     return <input type="checkbox" ref={resolvedRef} {...rest} />
 })
 
-
 function Table({
     columns,
     data,
     showFooter = false,
-    sortable = false,
+    sortable = true,
     showGlobalFilter = true,
     showColumnFilter = true,
     paginate = true,
@@ -32,15 +31,17 @@ function Table({
 
     const memoizedColumns = useMemo(() => columns, [columns])
     const memoizedData = useMemo(() => data, [data])
+    const hasStickyColumns = memoizedColumns.filter(column => column.sticky === true).length
 
 
     // ! DEFAULT column to apply default configs to columns
-    // const defaultColumn = useMemo(() => {
-    //     return {
-    //         Filter: ColumnFilter
-    //     }
-    // }, [])
+    const defaultColumn = useMemo(() => {
+        return {
+            width: 200,
+        }
+    }, [])
 
+    const isStickyColumn = (columnId) => memoizedColumns.find(column => column.accessor === columnId)?.sticky ? 'left' : null
 
     const setHeaderGroupArgs = (column) => {
         if (sortable) {
@@ -49,29 +50,41 @@ function Table({
         return []
     }
 
-    const tableIntance = useTable(
-        {
-            columns: memoizedColumns,
-            data: memoizedData,
-            // initialState: { pageIndex: 2 }
-        },
+    const tableInstanceConfigs = [{
+        columns: memoizedColumns,
+        data: memoizedData,
+        defaultColumn
+        // initialState: { pageIndex: 2 }
+    },
         useFilters,
         useGlobalFilter,
         useSortBy,
         usePagination,
         useRowSelect,
         useColumnOrder,
-        (hooks) => {
-            if (selectableRows) {
-                hooks.visibleColumns.push((columns) => [{
+
+    (hooks) => {
+        if (selectableRows) {
+            hooks.visibleColumns.push((columns) => {
+                const mappedColumns = columns.map(column => ({ ...column, sticky: isStickyColumn(column.id) }))
+                return [{
                     id: 'selection',
                     Header: ({ getToggleAllRowsSelectedProps }) => (<Checkbox  {...getToggleAllRowsSelectedProps()} />),
                     Cell: ({ row }) => (<Checkbox {...row.getToggleRowSelectedProps()} />),
-                }, ...columns])
+                    sticky: 'left',
+                    width: 30
+                }, ...mappedColumns]
             }
+
+            )
         }
-        // defaultColumn
-    )
+    }]
+
+    if (hasStickyColumns) {
+        tableInstanceConfigs.push(useSticky, useFlexLayout)
+    }
+
+    const tableIntance = useTable(...tableInstanceConfigs)
 
     const { getTableProps,
         getTableBodyProps,
@@ -107,7 +120,7 @@ function Table({
     }
 
     return (
-        <StyledTable>
+        <StyledTable sticky={hasStickyColumns}>
             <div>
                 <div>
                     <Checkbox {...getToggleHideAllColumnsProps()} /> Toggle All
@@ -129,8 +142,11 @@ function Table({
                 < table {...getTableProps} >
                     <thead>
                         {headerGroups.map(headerGroup => (<tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => <th {...column.getHeaderProps(...setHeaderGroupArgs(column))}>{column.render('Header')}
-                                {column.isSorted ? (column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />) : ''}
+                            {headerGroup.headers.map(column => <th {...column.getHeaderProps(...setHeaderGroupArgs(column))}>
+                                <div>
+                                    {column.render('Header')}
+                                    {column.isSorted ? (column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />) : ''}
+                                </div>
                                 <div>{(column?.Filter && showColumnFilter) ? column.render("Filter") : null}</div>
                             </th>)}
                         </tr>))}
@@ -139,7 +155,7 @@ function Table({
                         {renderRows.map(row => {
                             prepareRow(row);
                             return (<tr {...row.getRowProps()}>
-                                {row.cells.map(cell => <td {...cell.getCellProps()}>{cell.render("Cell")}</td>)}
+                                {row.cells.map(cell => <td  {...cell.getCellProps()}>{cell.render("Cell")}</td>)}
                             </tr>)
                         })}
                     </tbody>
