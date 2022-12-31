@@ -3,6 +3,7 @@ import { useSticky } from 'react-table-sticky'
 import { useMemo, forwardRef, useRef, useEffect } from "react"
 import StyledTable from "../Table/Table.styled"
 import Icon from "../../../models/components/icon"
+import generateExcel from "zipcelx";
 
 const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
 
@@ -15,6 +16,7 @@ const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
 
     return <input type="checkbox" ref={resolvedRef} {...rest} />
 })
+
 
 function Table({
     columns,
@@ -119,6 +121,73 @@ function Table({
         setColumnOrder(columnOrder)
     }
 
+    function getHeader(column) {
+        if (column.totalHeaderCount === 1) {
+            return [
+                {
+                    value: column.Header,
+                    type: "string"
+                }
+            ];
+        } else {
+            return [
+                {
+                    value: column.Header,
+                    type: "string"
+                },
+            ];
+        }
+    }
+
+    function getExcel() {
+        const config = {
+            filename: "table-test",
+            sheet: {
+                data: []
+            }
+        };
+
+        const dataSet = config.sheet.data;
+
+        headerGroups.forEach(headerGroup => {
+            const headerRow = [];
+            if (headerGroup.headers) {
+                headerGroup.headers.forEach((column, index) => {
+                    const rowHasData = renderRows.find(row => row.values[column.id])
+                    if (index && rowHasData) {
+                        headerRow.push(...getHeader(column));
+                    }
+                });
+            }
+
+            dataSet.push(headerRow);
+        });
+
+        if (renderRows.length > 0) {
+            renderRows.forEach(row => {
+                const dataRow = [];
+
+                Object.values(row.values).forEach(value =>
+                    dataRow.push({
+                        value,
+                        type: typeof value === "number" ? "number" : "string"
+                    })
+                );
+
+                dataSet.push(dataRow);
+            });
+        } else {
+            dataSet.push([
+                {
+                    value: "No data",
+                    type: "string"
+                }
+            ]);
+        }
+
+        return generateExcel(config);
+    }
+
     return (
         <StyledTable sticky={hasStickyColumns}>
             <div>
@@ -175,6 +244,7 @@ function Table({
                 <button disabled={!canPreviousPage} onClick={() => previousPage()}>Previous</button>
                 <button disabled={!canNextPage} onClick={() => nextPage()}>Next</button>
                 <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)}>{'>>'}</button>
+                <button onClick={getExcel}>Download to excel</button>
             </div>
             }
             {!hasData && <div>{noData}</div>}
