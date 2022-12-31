@@ -3,7 +3,7 @@ import { useSticky } from 'react-table-sticky'
 import { useMemo, forwardRef, useRef, useEffect } from "react"
 import StyledTable from "../Table/Table.styled"
 import Icon from "../../../models/components/icon"
-import generateExcel from "zipcelx";
+import useExportToExcel from './useExportToExcel';
 
 const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
 
@@ -16,7 +16,6 @@ const Checkbox = forwardRef(({ indeterminate, ...rest }, ref) => {
 
     return <input type="checkbox" ref={resolvedRef} {...rest} />
 })
-
 
 function Table({
     columns,
@@ -77,7 +76,6 @@ function Table({
                     width: 30
                 }, ...mappedColumns]
             }
-
             )
         }
     }]
@@ -121,72 +119,9 @@ function Table({
         setColumnOrder(columnOrder)
     }
 
-    function getHeader(column) {
-        if (column.totalHeaderCount === 1) {
-            return [
-                {
-                    value: column.Header,
-                    type: "string"
-                }
-            ];
-        } else {
-            return [
-                {
-                    value: column.Header,
-                    type: "string"
-                },
-            ];
-        }
-    }
+    const [getExcel] = useExportToExcel(renderRows, headerGroups)
 
-    function getExcel() {
-        const config = {
-            filename: "table-test",
-            sheet: {
-                data: []
-            }
-        };
-
-        const dataSet = config.sheet.data;
-
-        headerGroups.forEach(headerGroup => {
-            const headerRow = [];
-            if (headerGroup.headers) {
-                headerGroup.headers.forEach((column, index) => {
-                    const rowHasData = renderRows.find(row => row.values[column.id])
-                    if (index && rowHasData) {
-                        headerRow.push(...getHeader(column));
-                    }
-                });
-            }
-
-            dataSet.push(headerRow);
-        });
-
-        if (renderRows.length > 0) {
-            renderRows.forEach(row => {
-                const dataRow = [];
-
-                Object.values(row.values).forEach(value =>
-                    dataRow.push({
-                        value,
-                        type: typeof value === "number" ? "number" : "string"
-                    })
-                );
-
-                dataSet.push(dataRow);
-            });
-        } else {
-            dataSet.push([
-                {
-                    value: "No data",
-                    type: "string"
-                }
-            ]);
-        }
-
-        return generateExcel(config);
-    }
+    const renderOrdingIcon = (column) => column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />
 
     return (
         <StyledTable sticky={hasStickyColumns}>
@@ -214,7 +149,7 @@ function Table({
                             {headerGroup.headers.map(column => <th {...column.getHeaderProps(...setHeaderGroupArgs(column))}>
                                 <div>
                                     {column.render('Header')}
-                                    {column.isSorted ? (column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />) : ''}
+                                    {column.isSorted ? renderOrdingIcon(column) : ''}
                                 </div>
                                 <div>{(column?.Filter && showColumnFilter) ? column.render("Filter") : null}</div>
                             </th>)}

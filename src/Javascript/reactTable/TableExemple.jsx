@@ -11,13 +11,13 @@ export const ColumnFilter = ({ column }) => {
 function TableExemple() {
 
     const columns = [
-        { Header: "Id", Footer: "Id", accessor: "id" },
-        { Header: "First Name", Footer: "First Name", accessor: "first_name", Filter: ColumnFilter },
+        { Header: "Id", Footer: "Id", accessor: "id", width: 40, sticky: true },
+        { Header: "First Name", Footer: "First Name", accessor: "first_name", Filter: ColumnFilter, width: 200, sticky: true },
         { Header: "Last Name", Footer: "Last Name", accessor: "last_name", Filter: ColumnFilter },
         { Header: "Date of Birth", Footer: "Date of Birth", accessor: "date_of_birth", Filter: ColumnFilter },
         { Header: "Country", Footer: "Country", accessor: "country", Cell: ({ value }) => value + " (formated)", Filter: ColumnFilter },
         { Header: "Phone", Footer: "Phone", accessor: "phone", Filter: ColumnFilter },
-        { Header: "Options", Footer: "Options", Cell: (value) => <Icon onClick={() => { console.log(value); alert('Look console') }} icon="settings" /> }
+        { Header: "Options", Footer: "Options", Cell: (value) => <Icon onClick={() => { console.log(value); alert('Look console') }} icon="settings" />, width:80 }
     ]
 
     const groupedColumns = [

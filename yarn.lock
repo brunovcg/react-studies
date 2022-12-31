@@ -6073,6 +6073,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/zipcelx@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@types/zipcelx/-/zipcelx-1.5.0.tgz#e06e9ed51fadbc7fbcf15fbeb2bcbf446750c72e"
+  integrity sha512-7hGersZzoXCsaGLaeLYgJLj6VUAicbP0hZMLlcY1U0LXTnrCYWJ9kjVSAc3osDF6x2+5sCOsXnO4MBqLTCNeIA==
+
 "@typescript-eslint/eslint-plugin@^5.5.0":
   version "5.9.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.9.0.tgz"
