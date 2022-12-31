@@ -37,11 +37,11 @@ function TableExemple() {
         },
     ]
 
-    const columnOrder = ['id', 'fist_name', 'last_name', 'phone', 'country', 'date_of_birth']
+    //! it is hardcoded but you can use it in a function
+    const newColumnOrder = ['id', 'fist_name', 'last_name', 'phone', 'country', 'date_of_birth']
 
 
-
-    return <Table columns={columns} data={data} columnOrder={columnOrder} />
+    return <Table columns={columns} data={data} columnOrder={newColumnOrder} />
 }
 
 export default TableExemple
