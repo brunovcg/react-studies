@@ -1,7 +1,6 @@
 import Table from "./Table/Table"
 import data from "./mock.json"
 import Icon from "../../models/components/icon"
-import { background } from "@chakra-ui/react"
 
 export const ColumnFilter = ({ column }) => {
     const { filterValue, setFilter } = column
@@ -14,7 +13,7 @@ function TableExemple() {
     const columns = [
         {
             Header: "Id", Footer: "Id", accessor: "id",
-             width: 80
+            width: 80
         },
         { Header: "First Name", Footer: "First Name", accessor: "first_name", Filter: ColumnFilter },
         { Header: "Last Name", Footer: "Last Name", accessor: "last_name", Filter: ColumnFilter },
@@ -46,11 +45,13 @@ function TableExemple() {
 
 
     return <Table columns={columns} data={data} columnOrder={newColumnOrder}
+        onRowClick={(data) => console.log(data)}
         stickFromColumn="first_name"
         rowsConfig={{
             even: { background: '#edc2c2' },
             odd: { background: 'lightblue' },
-            row: { color: 'white' }
+            row: { color: 'white' },
+            hover: { background: 'yellow' },
         }}
         headerConfig={{ background: 'green', color: 'white' }}
     />

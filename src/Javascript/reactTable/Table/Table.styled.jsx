@@ -36,8 +36,9 @@ table tr:nth-child(odd) td {
   ${props => css`${props.rowConfigs?.odd}`}
 }
 
-table tr:hover {
+table tr:hover td {
   ${props => css`${props.rowConfigs?.hover}`}
+  cursor: ${props => props.clickableRow && 'pointer'} ;
 }
 
 table th, tfoot td {

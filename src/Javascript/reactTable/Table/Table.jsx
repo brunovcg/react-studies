@@ -31,12 +31,17 @@ function Table({
     defaultColumnConfigs,
     stickFromColumn,
     headerConfig,
-    rowsConfig
+    rowsConfig,
+    onRowClick
 }) {
 
     const memoizedColumns = useMemo(() => columns, [columns])
     const memoizedData = useMemo(() => data, [data])
     const hasManualWidthColumns = memoizedColumns.some(column => column.width)
+
+    const handleRowClick = (rowData) => {
+        onRowClick?.(rowData)
+    }
 
     // ! DEFAULT column to apply default configs to columns
     const defaultColumn = useMemo(() => {
@@ -137,7 +142,7 @@ function Table({
     const renderOrdingIcon = (column) => column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />
 
     return (
-        <StyledTable sticky={stickFromColumn} manualWidth={hasManualWidthColumns} headerConfig={headerConfig} rowConfigs={rowsConfig}>
+        <StyledTable sticky={stickFromColumn} manualWidth={hasManualWidthColumns} headerConfig={headerConfig} rowConfigs={rowsConfig} clickableRow={onRowClick} >
             <div>
                 <div>
                     <Checkbox {...getToggleHideAllColumnsProps()} /> Toggle All
@@ -171,7 +176,7 @@ function Table({
                     <tbody {...getTableBodyProps}>
                         {renderRows.map(row => {
                             prepareRow(row);
-                            return (<tr {...row.getRowProps()}>
+                            return (<tr onClick={() => handleRowClick(row.original)} {...row.getRowProps()}>
                                 {row.cells.map(cell => <StyledColumnData className="im-table-td" width={cell.column.width}  {...cell.getCellProps()}>{cell.render("Cell")}</StyledColumnData>)}
                             </tr>)
                         })}
