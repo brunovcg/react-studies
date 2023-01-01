@@ -1,58 +1,63 @@
 import styled, { css } from 'styled-components'
 
-const StyledTable = styled.div`
+export const StyledTable = styled.div`
 padding: 50px;
-
 
 .table-wrapper{
   width: 100%;
   overflow-x: auto;
 }
 
-
 table {
-  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   text-align: center;
   width: 100%;
-  overflow-x: hidden;
+  table-layout: ${props => props.stickFromColumn || !props.manualWidth ? 'auto' : 'fixed'}
 }
 
 table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
-  width: 30px;
-}
-
-table tr th {
-  position: relative;
- 
-  ${props => props.sticky && css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;  
-  `}
 }
 
 table tr th span {
   position: absolute;
-
 }
 
+table tbody tr td{
+  ${props => css`${props.rowsConfig?.row}`}
+}
 
-table tr:nth-child(even) td {background-color: #f2f2f2;}
-table tr:nth-child(odd) td {background-color: #fff;}
+table tr:nth-child(even) td {
+  ${props => css`${props.rowConfigs?.even}`}
+}
 
+table tr:nth-child(odd) td {
+  ${props => css`${props.rowConfigs?.odd}`}
+}
 
-table tr:hover {background-color: #ddd;}
+table tr:hover {
+  ${props => css`${props.rowConfigs?.hover}`}
+}
 
 table th, tfoot td {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #04AA6D;
-  color: white;
   overflow: hidden;
+  ${props => css`${props.headerConfig}`}
+}
+
+table tr th{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+
+  ${props =>
+    !props.manualWidth && !props.sticky && css`
+    display: table-cell;
+  `}
 }
 
 &.sticky {
@@ -81,6 +86,7 @@ table th, tfoot td {
  
       [data-sticky-td] {
         position: sticky;
+        left: 0;
       }
  
       [data-sticky-last-left-td] {
@@ -91,7 +97,22 @@ table th, tfoot td {
         box-shadow: -2px 0px 3px #ccc;
       }
     }
-
 `
 
-export default StyledTable
+export const StyledColumnHeader = styled.th`
+  width: ${props => props.width ? `${props.width}px` : 'auto'};
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+
+  ${props =>
+    !props.manualWidth && !props.sticky && css`
+    display: table-cell;
+  `}
+
+`
+export const StyledColumnData = styled.td`
+width: ${props => props.width ? `${props.width}px` : 'auto'}
+`
