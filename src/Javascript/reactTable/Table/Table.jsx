@@ -30,9 +30,11 @@ function Table({
     noData = "There is no data",
     defaultColumnConfigs,
     stickFromColumn,
+    stickHeader,
     headerConfig,
     rowsConfig,
-    onRowClick
+    onRowClick,
+    tableHeight
 }) {
 
     const memoizedColumns = useMemo(() => columns, [columns])
@@ -142,7 +144,7 @@ function Table({
     const renderOrdingIcon = (column) => column.isSortedDesc ? <Icon icon="arrow_downward" /> : <Icon icon="arrow_upward" />
 
     return (
-        <StyledTable sticky={stickFromColumn} manualWidth={hasManualWidthColumns} headerConfig={headerConfig} rowConfigs={rowsConfig} clickableRow={onRowClick} >
+        <StyledTable stickColumn={stickFromColumn} manualWidth={hasManualWidthColumns} headerConfig={headerConfig} rowConfigs={rowsConfig} clickableRow={onRowClick} stickHeader={stickHeader} tableHeight={tableHeight} >
             <div>
                 <div>
                     <Checkbox {...getToggleHideAllColumnsProps()} /> Toggle All

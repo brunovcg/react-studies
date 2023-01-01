@@ -54,6 +54,8 @@ function TableExemple() {
             hover: { background: 'yellow' },
         }}
         headerConfig={{ background: 'green', color: 'white' }}
+        tableHeight="300px"
+        stickHeader
     />
 }
 

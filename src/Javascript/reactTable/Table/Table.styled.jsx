@@ -5,6 +5,7 @@ padding: 50px;
 
 .table-wrapper{
   width: 100%;
+  height: ${props => props.tableHeight} ;
   overflow-x: auto;
 }
 
@@ -13,6 +14,15 @@ table {
   text-align: center;
   width: 100%;
   table-layout: ${props => props.stickFromColumn || !props.manualWidth ? 'auto' : 'fixed'}
+}
+
+table thead {
+  ${props => props.stickHeader && css`
+    z-index: 4;
+    position: sticky;
+    top:0;
+  
+  `}
 }
 
 table td, table th {
@@ -56,7 +66,7 @@ table tr th{
   justify-content: center;  
 
   ${props =>
-    !props.manualWidth && !props.sticky && css`
+    !props.manualWidth && !props.stickColumn && css`
     display: table-cell;
   `}
 }
@@ -109,7 +119,7 @@ export const StyledColumnHeader = styled.th`
   justify-content: center;  
 
   ${props =>
-    !props.manualWidth && !props.sticky && css`
+    !props.manualWidth && !props.stickColumn && css`
     display: table-cell;
   `}
 
